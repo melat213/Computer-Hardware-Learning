@@ -86,7 +86,7 @@
             font-weight: bold;
         }
 
-        nav button:hover,
+        nav button\:hover,
         nav button.active {
             background: #dbeafe;
             color: #1d4ed8;
@@ -232,7 +232,7 @@
             transition: 0.25s;
         }
 
-        .hardware-card:hover {
+        .hardware-card\:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
@@ -292,7 +292,7 @@
             font-weight: bold;
         }
 
-        .btn:hover {
+        .btn\:hover {
             background: #1d4ed8;
         }
 
@@ -390,7 +390,7 @@
             transition: 0.2s;
         }
 
-        .choice:hover {
+        .choice\:hover {
             border-color: #2563eb;
             background: #eff6ff;
         }
@@ -469,7 +469,7 @@
                 font-size: 23px;
             }
         }
-    
+
         .quiz-select.active {
             transform: translateY(-1px);
             box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
@@ -582,7 +582,7 @@
                     identification quiz to test your knowledge.
                 </p>
 
-                <br>
+                
 
                 <button class="btn" onclick="showSection('hardware')">
                     Start Learning
@@ -624,6 +624,7 @@
                 <option value="input">Input</option>
                 <option value="output">Output</option>
                 <option value="power">Power</option>
+                <option value="connectivity">Connectivity</option>
 
             </select>
 
@@ -640,10 +641,10 @@
 
         <div class="page-title">
             <h2>Hardware Identification Quizzes</h2>
-            <p>Choose a quiz. Each quiz contains 15 different questions about the 27 computer hardware components.</p>
+            <p>Choose a quiz. Each quiz contains 15 different questions about the 37 computer hardware components.</p>
         </div>
 
-        <div class="quiz-selector" id="quizSelector" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+        <div class="quiz-selector" id="quizSelector" style="display\:flex;gap:10px;flex-wrap\:wrap;margin-bottom:20px;">
             <button class="btn quiz-select active" onclick="selectQuiz('Quiz 1')">Quiz 1</button>
             <button class="btn quiz-select" onclick="selectQuiz('Quiz 2')">Quiz 2</button>
             <button class="btn quiz-select" onclick="selectQuiz('Quiz 3')">Quiz 3</button>
@@ -709,7 +710,7 @@
                 component descriptions, functions, and an identification quiz.
             </p>
 
-            <br>
+            
 
             <h3>Learning Objectives</h3>
 
@@ -798,7 +799,7 @@
             id: 1,
             name: "CPU",
             category: "processing",
-            image: "https://images.tcdn.com.br/img/img_prod/237837/processador_intel_core_i5_8600_sr3x0_3_10ghz_1151_8a_geracao_oem_s_cooler_62429_1_3e27583b9a16bc5203fb98bd8e2bbe6d.png",
+            image: "https\://images.tcdn.com.br/img/img\_prod/237837/processador\_intel\_core\_i5\_8600\_sr3x0\_3\_10ghz\_1151\_8a\_geracao\_oem\_s\_cooler\_62429\_1\_3e27583b9a16bc5203fb98bd8e2bbe6d.png",
             description:
                 "The Central Processing Unit is the main processor of a computer. It executes instructions and performs calculations.",
             functions: [
@@ -812,7 +813,7 @@
             id: 2,
             name: "Motherboard",
             category: "processing",
-            image: "https://www.pngmart.com/files/7/Motherboard-PNG-HD.png",
+            image: "https\://www\.pngmart.com/files/7/Motherboard-PNG-HD.png",
             description:
                 "The motherboard is the main circuit board that connects and allows communication between computer components.",
             functions: [
@@ -826,7 +827,7 @@
             id: 3,
             name: "RAM",
             category: "memory",
-            image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/163762/xlarge/Mem-ria-RAM-Kingston-8GB-2400MHz-DDR4-CL17-KVR24N17S8-8_1778657022.jpg",
+            image: "https\://images.kabum.com.br/produtos/fotos/sync\_mirakl/163762/xlarge/Mem-ria-RAM-Kingston-8GB-2400MHz-DDR4-CL17-KVR24N17S8-8\_1778657022.jpg",
             description:
                 "Random Access Memory temporarily stores data and instructions that the CPU is currently using.",
             functions: [
@@ -840,7 +841,7 @@
             id: 4,
             name: "Hard Disk Drive",
             category: "storage",
-            image: "https://cdn11.bigcommerce.com/s-qfzamxn9kz/images/stencil/original/products/345432/527272/20190812_145023__86017.1718390971.jpg?c=2",
+            image: "https\://cdn11.bigcommerce.com/s-qfzamxn9kz/images/stencil/original/products/345432/527272/20190812\_145023\_\_86017.1718390971.jpg?c=2",
             description:
                 "A Hard Disk Drive is a storage device used to permanently store files, applications, and operating system data.",
             functions: [
@@ -854,7 +855,7 @@
             id: 5,
             name: "SSD",
             category: "storage",
-            image: "https://bizweb.dktcdn.net/thumb/grande/100/275/158/products/31189576-2062318257426447-3489188735000510464-n.jpg?v=1524559339420",
+            image: "https\://bizweb.dktcdn.net/thumb/grande/100/275/158/products/31189576-2062318257426447-3489188735000510464-n.jpg?v=1524559339420",
             description:
                 "A Solid State Drive is a storage device that uses flash memory to store data.",
             functions: [
@@ -868,7 +869,7 @@
             id: 6,
             name: "Keyboard",
             category: "input",
-            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Computer%20Keyboard.jpg",
+            image: "https\://commons.wikimedia.org/wiki/Special\:Redirect/file/Computer%20Keyboard.jpg",
             description:
                 "A keyboard is an input device used to enter text, commands, numbers, and other information.",
             functions: [
@@ -882,7 +883,7 @@
             id: 7,
             name: "Mouse",
             category: "input",
-            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20computer%20mouse.jpg",
+            image: "https\://commons.wikimedia.org/wiki/Special\:Redirect/file/A%20computer%20mouse.jpg",
             description:
                 "A mouse is a pointing input device used to control the cursor and interact with graphical interfaces.",
             functions: [
@@ -896,7 +897,7 @@
             id: 8,
             name: "Monitor",
             category: "output",
-            image: "https://ak-asset.jarir.com/akeneo-prod/asset/m1images/5/4/540118.jpg",
+            image: "https\://ak-asset.jarir.com/akeneo-prod/asset/m1images/5/4/540118.jpg",
             description:
                 "A monitor is an output device that displays visual information produced by the computer.",
             functions: [
@@ -910,7 +911,7 @@
             id: 9,
             name: "Printer",
             category: "output",
-            image: "https://media.currys.biz/i/currysprod/10292228?%24l-large%24=&fmt=auto",
+            image: "https\://media.currys.biz/i/currysprod/10292228?%24l-large%24=&fmt=auto",
             description:
                 "A printer is an output device that produces a physical copy of digital documents and images.",
             functions: [
@@ -924,7 +925,7 @@
             id: 10,
             name: "Power Supply Unit",
             category: "power",
-            image: "https://buildpremiumpc.com/wp-content/uploads/2021/04/Power-Supply-Unit-PSU.jpg",
+            image: "https\://buildpremiumpc.com/wp-content/uploads/2021/04/Power-Supply-Unit-PSU.jpg",
             description:
                 "The Power Supply Unit provides electrical power to the components inside a computer.",
             functions: [
@@ -938,7 +939,7 @@
             id: 11,
             name: "Graphics Processing Unit",
             category: "processing",
-            image: "https://i5-mx.walmartimages.com/mg/gm/3pp/asr/b7568404-158f-4264-93ad-54c10c414e59.22ed9c4b7c82f03f4bc26ca4da0e8ab3.jpeg?odnBg=ffffff&odnHeight=2000&odnWidth=2000",
+            image: "https\://i5-mx.walmartimages.com/mg/gm/3pp/asr/b7568404-158f-4264-93ad-54c10c414e59.22ed9c4b7c82f03f4bc26ca4da0e8ab3.jpeg?odnBg=ffffff&odnHeight=2000&odnWidth=2000",
             description:
                 "The GPU processes and renders graphics, images, and video for display.",
             functions: [
@@ -952,7 +953,7 @@
             id: 12,
             name: "Cooling Fan",
             category: "power",
-            image: "https://media.bunnings.com.au/api/public/content/a8d8e8785b054a7c95f9c4785bf1cb4e?t=w700dpr1&v=402cd16c",
+            image: "https\://media.bunnings.com.au/api/public/content/a8d8e8785b054a7c95f9c4785bf1cb4e?t=w700dpr1&v=402cd16c",
             description:
                 "A cooling fan helps maintain safe temperatures by moving air through the computer system.",
             functions: [
@@ -966,7 +967,7 @@
             id: 13,
             name: "CPU Cooler",
             category: "power",
-            image: "https://www.bhphotovideo.com/images/images1500x1500/be_quiet_bk007_pure_rock_2_black_1563866.jpg",
+            image: "https\://www\.bhphotovideo.com/images/images1500x1500/be\_quiet\_bk007\_pure\_rock\_2\_black\_1563866.jpg",
             description:
                 "A CPU cooler removes heat produced by the processor and helps keep the CPU at a safe operating temperature.",
             functions: [
@@ -980,7 +981,7 @@
             id: 14,
             name: "Computer Case",
             category: "power",
-            image: "https://us.123rf.com/450wm/kitaec/kitaec1207/kitaec120700082/14532934-computer-system-unit-on-a-white-background.jpg",
+            image: "https\://us.123rf.com/450wm/kitaec/kitaec1207/kitaec120700082/14532934-computer-system-unit-on-a-white-background.jpg",
             description:
                 "The computer case is the enclosure that houses and protects the internal hardware components.",
             functions: [
@@ -994,7 +995,7 @@
             id: 15,
             name: "Sound Card",
             category: "processing",
-            image: "https://pcbox.vtexassets.com/arquivos/ids/391649-853-853/70SB157000000_GAL_1.jpg?v=637892107349370000",
+            image: "https\://pcbox.vtexassets.com/arquivos/ids/391649-853-853/70SB157000000\_GAL\_1.jpg?v=637892107349370000",
             description:
                 "A sound card is a hardware component that processes audio signals for recording and playback.",
             functions: [
@@ -1008,7 +1009,7 @@
             id: 16,
             name: "Network Interface Card",
             category: "input",
-            image: "https://img.joomcdn.net/670ba8cccf9874e21aa14c3a04fb03ae427e08a7_1024_1024.jpeg",
+            image: "https\://img.joomcdn.net/670ba8cccf9874e21aa14c3a04fb03ae427e08a7\_1024\_1024.jpeg",
             description:
                 "A Network Interface Card allows a computer to connect to a wired or wireless network.",
             functions: [
@@ -1022,7 +1023,7 @@
             id: 17,
             name: "Webcam",
             category: "input",
-            image: "https://image.made-in-china.com/202f0j00kUrbFczKCqoG/Customized-HD-1080P-Driver-Free-Streaming-Plug-and-Play-PC-Cameras-with-Microphone-for-Online-Classes-Gaming-Video-Conference.webp",
+            image: "https\://image.made-in-china.com/202f0j00kUrbFczKCqoG/Customized-HD-1080P-Driver-Free-Streaming-Plug-and-Play-PC-Cameras-with-Microphone-for-Online-Classes-Gaming-Video-Conference.webp",
             description:
                 "A webcam is an input device that captures video and images and sends them to the computer.",
             functions: [
@@ -1036,7 +1037,7 @@
             id: 18,
             name: "Microphone",
             category: "input",
-            image: "https://img.danawa.com/prod_img/500000/421/201/img/3201421_1.jpg?_v=20240221111817",
+            image: "https\://img.danawa.com/prod\_img/500000/421/201/img/3201421\_1.jpg?\_v=20240221111817",
             description:
                 "A microphone is an input device that captures sound and converts it into digital audio.",
             functions: [
@@ -1050,7 +1051,7 @@
             id: 19,
             name: "Speakers",
             category: "output",
-            image: "https://i5.walmartimages.com/seo/Blackweb-Multimedia-Computer-Speaker_274cbb3b-b6ec-4d28-a9d2-758ccc2ef0b2_1.cf70e5975dc653a301dc66b9403ccb01.jpeg",
+            image: "https\://i5.walmartimages.com/seo/Blackweb-Multimedia-Computer-Speaker\_274cbb3b-b6ec-4d28-a9d2-758ccc2ef0b2\_1.cf70e5975dc653a301dc66b9403ccb01.jpeg",
             description:
                 "Speakers are output devices that produce sound from audio signals generated by the computer.",
             functions: [
@@ -1064,7 +1065,7 @@
             id: 20,
             name: "Optical Drive",
             category: "storage",
-            image: "https://i.ebayimg.com/images/g/VoQAAeSwPHZpdRDj/s-l1200.webp",
+            image: "https\://i.ebayimg.com/images/g/VoQAAeSwPHZpdRDj/s-l1200.webp",
             description:
                 "An optical drive is a device that reads or writes data using CDs, DVDs, or other optical discs.",
             functions: [
@@ -1078,7 +1079,7 @@
             id: 21,
             name: "USB Flash Drive",
             category: "storage",
-            image: "https://media.e.leclerc/5908267920848_1",
+            image: "https\://media.e.leclerc/5908267920848\_1",
             description:
                 "A USB flash drive is a portable storage device used to save and transfer digital files.",
             functions: [
@@ -1092,7 +1093,7 @@
             id: 22,
             name: "Wi-Fi Adapter",
             category: "input",
-            image: "https://simple.ripley.com.pe/product/_next/image?q=100&url=https%3A%2F%2Frimage.ripley.com.pe%2Fhome.ripley%2FAttachment%2FMKP%2F5679%2FPMP20001134306%2Ffull_image-1.jpeg&w=3840",
+            image: "https\://simple.ripley.com.pe/product/\_next/image?q=100&url=https%3A%2F%2Frimage.ripley.com.pe%2Fhome.ripley%2FAttachment%2FMKP%2F5679%2FPMP20001134306%2Ffull\_image-1.jpeg&w=3840",
             description:
                 "A Wi-Fi adapter allows a computer to connect to wireless networks and access the internet.",
             functions: [
@@ -1106,7 +1107,7 @@
             id: 23,
             name: "Heatsink",
             category: "power",
-            image: "https://image.coupangcdn.com/image/vendor_inventory/3c61/4504cfba4d79dc2d42eaf382a1ae91736302d5b5df4779a98540e6351240.jpg",
+            image: "https\://image.coupangcdn.com/image/vendor\_inventory/3c61/4504cfba4d79dc2d42eaf382a1ae91736302d5b5df4779a98540e6351240.jpg",
             description:
                 "A heatsink is a metal component that absorbs and dissipates heat produced by computer hardware.",
             functions: [
@@ -1120,7 +1121,7 @@
             id: 24,
             name: "CMOS Battery",
             category: "power",
-            image: "https://www.dunyagrup.com/images/thumbnails/640/640/detailed/705/lenovo-01lm046-masaustu-bilgisayar-anakart-mainboard-5.jpg",
+            image: "https\://www\.dunyagrup.com/images/thumbnails/640/640/detailed/705/lenovo-01lm046-masaustu-bilgisayar-anakart-mainboard-5.jpg",
             description:
                 "The CMOS battery provides power to maintain important system settings such as the date, time, and BIOS settings.",
             functions: [
@@ -1134,7 +1135,7 @@
             id: 25,
             name: "Touchpad",
             category: "input",
-            image: "https://cdn11.bigcommerce.com/s-qt1c6pqa7l/images/stencil/1280x1280/products/204167/303455/Inspiron_7391_Silver_CMB__33794.1721785960.jpg?c=2",
+            image: "https\://cdn11.bigcommerce.com/s-qt1c6pqa7l/images/stencil/1280x1280/products/204167/303455/Inspiron\_7391\_Silver\_CMB\_\_33794.1721785960.jpg?c=2",
             description:
                 "A touchpad is a pointing device commonly found on laptops and is used to control the cursor.",
             functions: [
@@ -1148,7 +1149,7 @@
             id: 26,
             name: "Joystick",
             category: "input",
-            image: "https://www.mirao.com.br/media/catalog/product/cache/8f0a4abb573d10d1a4c58443fb5f417c/w/e/wer23423.jpg",
+            image: "https\://www\.mirao.com.br/media/catalog/product/cache/8f0a4abb573d10d1a4c58443fb5f417c/w/e/wer23423.jpg",
             description:
                 "A joystick is an input device used to control movement and actions in computer games and simulations.",
             functions: [
@@ -1162,7 +1163,7 @@
             id: 27,
             name: "Projector",
             category: "output",
-            image: "https://cf-images.dustin.eu/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cquality%3D75%2Cwidth%3D828%2Cfit%3Dcontain/image/d20000100421819/infocus-in3118hd-dlp-projektor.jpg",
+            image: "https\://cf-images.dustin.eu/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cquality%3D75%2Cwidth%3D828%2Cfit%3Dcontain/image/d20000100421819/infocus-in3118hd-dlp-projektor.jpg",
             description:
                 "A projector is an output device that displays computer images and videos on a large screen or surface.",
             functions: [
@@ -1172,6 +1173,137 @@
             ]
         }
 
+
+        {
+            id: 28,
+            name: "Chipset",
+            category: "processing",
+            image: "https://placehold.co/600x400?text=Chipset",
+            description:
+                "A chipset is a group of integrated circuits on the motherboard that helps manage communication between the processor, memory, storage, and other hardware.",
+            functions: [
+                "Manages communication between hardware components",
+                "Controls data transfer between the CPU and other devices",
+                "Supports motherboard features and connectivity"
+            ]
+        },
+        {
+            id: 29,
+            name: "VGA Port",
+            category: "output",
+            image: "https://placehold.co/600x400?text=VGA+Port",
+            description:
+                "A VGA port is an analog video connector commonly used to connect a computer to a monitor or projector.",
+            functions: [
+                "Connects a computer to a VGA display",
+                "Transmits analog video signals",
+                "Supports older monitors and projectors"
+            ]
+        },
+        {
+            id: 30,
+            name: "NIC/Ethernet Port",
+            category: "connectivity",
+            image: "https://placehold.co/600x400?text=Ethernet+Port",
+            description:
+                "A NIC/Ethernet port is a network connection interface that allows a computer to connect to a wired network using an Ethernet cable.",
+            functions: [
+                "Connects the computer to a wired network",
+                "Sends and receives network data",
+                "Provides Ethernet internet or local network access"
+            ]
+        },
+        {
+            id: 31,
+            name: "BIOS/UEFI",
+            category: "processing",
+            image: "https://placehold.co/600x400?text=BIOS%2FUEFI",
+            description:
+                "BIOS/UEFI is motherboard firmware that initializes hardware and starts the process of loading the operating system when a computer is turned on.",
+            functions: [
+                "Initializes hardware during startup",
+                "Performs basic system checks",
+                "Starts the operating system boot process"
+            ]
+        },
+        {
+            id: 32,
+            name: "I/O Ports",
+            category: "connectivity",
+            image: "https://placehold.co/600x400?text=I%2FO+Ports",
+            description:
+                "I/O ports are physical connectors on a computer used to connect input, output, storage, display, and other peripheral devices.",
+            functions: [
+                "Connects external devices to the computer",
+                "Allows data and signal transfer",
+                "Supports different types of peripherals"
+            ]
+        },
+        {
+            id: 33,
+            name: "Memory Card",
+            category: "storage",
+            image: "https://placehold.co/600x400?text=Memory+Card",
+            description:
+                "A memory card is a small removable storage device used to save and transfer digital files such as photos, videos, and documents.",
+            functions: [
+                "Stores digital files",
+                "Transfers data between compatible devices",
+                "Provides portable storage"
+            ]
+        },
+        {
+            id: 34,
+            name: "CD/DVD",
+            category: "storage",
+            image: "https://placehold.co/600x400?text=CD%2FDVD",
+            description:
+                "A CD/DVD is an optical disc used to store and distribute digital information such as files, music, videos, and software.",
+            functions: [
+                "Stores digital information",
+                "Allows files and media to be read by an optical drive",
+                "Provides removable optical storage"
+            ]
+        },
+        {
+            id: 35,
+            name: "HDMI Port",
+            category: "output",
+            image: "https://placehold.co/600x400?text=HDMI+Port",
+            description:
+                "An HDMI port is a digital connector used to transmit high-quality video and audio from a computer to a compatible display or other device.",
+            functions: [
+                "Transmits digital video",
+                "Transmits digital audio",
+                "Connects computers to monitors, TVs, and projectors"
+            ]
+        },
+        {
+            id: 36,
+            name: "ROM",
+            category: "memory",
+            image: "https://placehold.co/600x400?text=ROM",
+            description:
+                "Read-Only Memory is non-volatile memory that retains stored information even when the computer is turned off.",
+            functions: [
+                "Stores permanent or firmware-related instructions",
+                "Retains data without continuous power",
+                "Provides information needed for hardware startup"
+            ]
+        },
+        {
+            id: 37,
+            name: "USB Port",
+            category: "connectivity",
+            image: "https://placehold.co/600x400?text=USB+Port",
+            description:
+                "A USB port is a standard interface used to connect peripherals and storage devices to a computer for data transfer and, in many cases, power.",
+            functions: [
+                "Connects USB devices and peripherals",
+                "Transfers digital data",
+                "Can provide power to compatible devices"
+            ]
+        },
     ];
 
 
@@ -1347,7 +1479,7 @@
 
         });
 
-        window.scrollTo({
+        window\.scrollTo({
             top: 0,
             behavior: "smooth"
         });
@@ -1397,12 +1529,12 @@
 
         if (filtered.length === 0) {
 
-            grid.innerHTML = `
+            grid.innerHTML = \`
                 <div class="panel">
                     <h3>No hardware found.</h3>
                     <p>Try another search keyword.</p>
                 </div>
-            `;
+            \`;
 
             return;
 
@@ -1419,7 +1551,7 @@
 
             card.className = "hardware-card";
 
-            card.innerHTML = `
+            card.innerHTML = \`
 
                 <div class="hardware-image">
                     <img
@@ -1452,7 +1584,7 @@
 
                 </div>
 
-            `;
+            \`;
 
             grid.appendChild(card);
 
@@ -1580,7 +1712,7 @@
         score = 0;
         selectedAnswer = null;
 
-        document.getElementById("quizBox").innerHTML = `
+        document.getElementById("quizBox").innerHTML = \`
             <div class="quiz-number" id="quizNumber">${quizName} — Question 1</div>
             <div class="quiz-question" id="quizQuestion">Loading question...</div>
             <div class="choices" id="choices"></div>
@@ -1588,7 +1720,7 @@
                 <span id="quizProgress">1 / ${quizData.length}</span>
                 <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
             </div>
-        `;
+        \`;
 
         loadQuestion();
     }
@@ -1603,7 +1735,7 @@
 
         document.getElementById("quizNumber")
             .textContent =
-            `Question ${currentQuestion + 1}`;
+            \`Question ${currentQuestion + 1}\`;
 
         document.getElementById("quizQuestion")
             .textContent =
@@ -1611,7 +1743,7 @@
 
         document.getElementById("quizProgress")
             .textContent =
-            `${currentQuestion + 1} / ${quizData.length}`;
+            \`${currentQuestion + 1} / ${quizData.length}\`;
 
         const choices =
             document.getElementById("choices");
@@ -1737,7 +1869,7 @@
 
 
         document.getElementById("quizBox")
-            .innerHTML = `
+            .innerHTML = \`
 
                 <div class="result">
 
@@ -1755,7 +1887,7 @@
                         questions correct.
                     </p>
 
-                    <br>
+                    
 
                     <button
                         class="btn"
@@ -1773,7 +1905,7 @@
 
                 </div>
 
-            `;
+            \`;
 
 
         updateDashboard();
@@ -1790,7 +1922,7 @@
         selectedAnswer = null;
 
         document.getElementById("quizBox")
-            .innerHTML = `
+            .innerHTML = \`
 
             <div class="quiz-number" id="quizNumber">
                 Question 1
@@ -1824,7 +1956,7 @@
                 </button>
 
             </div>
-        `;
+        \`;
 
         loadQuestion();
 
