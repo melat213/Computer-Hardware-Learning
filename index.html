@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Computer Hardware Identification & Learning System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+            padding: 25px 7%;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo h1 {
+            font-size: 25px;
+            margin-bottom: 6px;
+        }
+
+        .logo p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .student-box {
+            background: rgba(255,255,255,0.12);
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .student-box span {
+            display: block;
+            font-size: 12px;
+            color: #dbeafe;
+        }
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            background: white;
+            padding: 12px 7%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            border: none;
+            background: transparent;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #475569;
+            font-weight: bold;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        /* ================= MAIN ================= */
+
+        main {
+            width: 86%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h2 {
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .page-title p {
+            color: #64748b;
+        }
+
+        /* ================= DASHBOARD ================= */
+
+        .welcome {
+            background: linear-gradient(135deg, #2563eb, #0ea5e9);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .welcome h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #e0f2fe;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        }
+
+        .stat-card h3 {
+            font-size: 28px;
+            color: #2563eb;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        }
+
+        .panel h3 {
+            margin-bottom: 18px;
+        }
+
+        .progress-container {
+            background: #e2e8f0;
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: #2563eb;
+            height: 100%;
+            width: 0%;
+            transition: 0.4s;
+        }
+
+        /* ================= HARDWARE ================= */
+
+        .toolbar {
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar input,
+        .toolbar select {
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .hardware-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            transition: 0.25s;
+        }
+
+        .hardware-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .hardware-image {
+            height: 150px;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+        }
+
+        .hardware-info {
+            padding: 20px;
+        }
+
+        .hardware-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .category {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 12px;
+            padding: 5px 9px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .hardware-info p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            border: none;
+            padding: 11px 17px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .btn.secondary {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        /* ================= MODAL ================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.65);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 999;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 15px;
+            padding: 30px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .detail-icon {
+            font-size: 90px;
+            text-align: center;
+            margin: 10px 0 20px;
+        }
+
+        .detail-list {
+            margin: 15px 0;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        /* ================= QUIZ ================= */
+
+        .quiz-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        }
+
+        .quiz-number {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .quiz-question {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .choices {
+            display: grid;
+            gap: 12px;
+        }
+
+        .choice {
+            border: 2px solid #e2e8f0;
+            background: white;
+            padding: 15px;
+            border-radius: 9px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .choice:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .choice.correct {
+            border-color: #16a34a;
+            background: #dcfce7;
+        }
+
+        .choice.wrong {
+            border-color: #dc2626;
+            background: #fee2e2;
+        }
+
+        .quiz-actions {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .result {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .result-score {
+            font-size: 55px;
+            color: #2563eb;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 50px;
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hardware-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats,
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                width: 92%;
+            }
+
+            .welcome h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <h1>💻 Hardware Learning System</h1>
+            <p>Computer Hardware Identification and Learning System</p>
+        </div>
+
+        <div class="student-box">
+            <span>Student</span>
+            <strong id="studentName">Computer Technology Student</strong>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li>
+            <button class="nav-btn active" data-section="dashboard">
+                🏠 Dashboard
+            </button>
+        </li>
+
+        <li>
+            <button class="nav-btn" data-section="hardware">
+                🔧 Hardware
+            </button>
+        </li>
+
+        <li>
+            <button class="nav-btn" data-section="quiz">
+                📝 Identification Quiz
+            </button>
+        </li>
+
+        <li>
+            <button class="nav-btn" data-section="about">
+                ℹ️ About
+            </button>
+        </li>
+    </ul>
+</nav>
+
+<main>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section id="dashboard" class="section active">
+
+        <div class="welcome">
+            <h2>Welcome to the Hardware Learning System</h2>
+            <p>
+                Learn, identify, and test your knowledge about different
+                computer hardware components.
+            </p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3 id="hardwareCount">0</h3>
+                <p>Hardware Components</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="quizScore">0%</h3>
+                <p>Latest Quiz Score</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="quizTaken">0</h3>
+                <p>Quiz Attempts</p>
+            </div>
+
+            <div class="stat-card">
+                <h3 id="learnedCount">0</h3>
+                <p>Components Learned</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="panel">
+
+                <h3>Learning Progress</h3>
+
+                <p style="margin-bottom:10px;">
+                    <span id="progressText">0</span>% completed
+                </p>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3>Quick Start</h3>
+
+                <p style="color:#64748b; line-height:1.6;">
+                    Explore the hardware components first, then take the
+                    identification quiz to test your knowledge.
+                </p>
+
+                <br>
+
+                <button class="btn" onclick="showSection('hardware')">
+                    Start Learning
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HARDWARE ================= -->
+
+    <section id="hardware" class="section">
+
+        <div class="page-title">
+            <h2>Computer Hardware Components</h2>
+            <p>Study the different components and learn their functions.</p>
+        </div>
+
+        <div class="toolbar">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search hardware..."
+            >
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="processing">
+                    Processing
+                </option>
+
+                <option value="memory">
+                    Memory
+                </option>
+
+                <option value="storage">
+                    Storage
+                </option>
+
+                <option value="input">
+                    Input
+                </option>
+
+                <option value="output">
+                    Output
+                </option>
+
+                <option value="power">
+                    Power
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="hardware-grid" id="hardwareGrid"></div>
+
+    </section>
+
+
+    <!-- ================= QUIZ ================= -->
+
+    <section id="quiz" class="section">
+
+        <div class="page-title">
+            <h2>Hardware Identification Quiz</h2>
+            <p>Identify the correct computer hardware component.</p>
+        </div>
+
+        <div class="quiz-box" id="quizBox">
+
+            <div class="quiz-number" id="quizNumber">
+                Question 1
+            </div>
+
+            <div class="quiz-question" id="quizQuestion">
+                Loading question...
+            </div>
+
+            <div class="choices" id="choices"></div>
+
+            <div class="quiz-actions">
+
+                <span id="quizProgress">
+                    1 / 10
+                </span>
+
+                <button
+                    class="btn"
+                    id="nextBtn"
+                    onclick="nextQuestion()"
+                    disabled
+                >
+                    Next
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="section">
+
+        <div class="page-title">
+            <h2>About the System</h2>
+            <p>Development of a Web-Based Computer Hardware Identification and Learning System.</p>
+        </div>
+
+        <div class="panel">
+
+            <h3>System Purpose</h3>
+
+            <p style="line-height:1.8; color:#64748b;">
+                This web-based system is designed to help Computer Technology
+                students learn and identify different computer hardware
+                components. It provides educational information, component
+                descriptions, functions, and an identification quiz.
+            </p>
+
+            <br>
+
+            <h3>Learning Objectives</h3>
+
+            <ul class="detail-list">
+
+                <li>Identify common computer hardware components.</li>
+
+                <li>Understand the basic functions of each component.</li>
+
+                <li>Improve hardware identification skills.</li>
+
+                <li>Assess student knowledge through an interactive quiz.</li>
+
+                <li>Monitor learning progress.</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 Computer Technology Department |
+        Hardware Identification and Learning System
+    </p>
+</footer>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="hardwareModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Hardware
+            </h2>
+
+            <button class="close" onclick="closeModal()">
+                ×
+            </button>
+
+        </div>
+
+        <div class="detail-icon" id="modalIcon">
+            💻
+        </div>
+
+        <p id="modalDescription"></p>
+
+        <h3 style="margin-top:20px;">
+            Main Functions
+        </h3>
+
+        <ul class="detail-list" id="modalFunctions"></ul>
+
+        <button
+            class="btn"
+            onclick="markAsLearned()"
+        >
+            ✓ Mark as Learned
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =====================================================
+       HARDWARE DATA
+    ===================================================== */
+
+    const hardwareData = [
+
+        {
+            id: 1,
+            name: "CPU",
+            category: "processing",
+            icon: "🧠",
+            description:
+                "The Central Processing Unit is the main processor of a computer. It executes instructions and performs calculations.",
+            functions: [
+                "Processes computer instructions",
+                "Performs calculations",
+                "Controls computer operations"
+            ]
+        },
+
+        {
+            id: 2,
+            name: "Motherboard",
+            category: "processing",
+            icon: "🔲",
+            description:
+                "The motherboard is the main circuit board that connects and allows communication between computer components.",
+            functions: [
+                "Connects computer components",
+                "Allows communication between hardware",
+                "Provides expansion slots and connectors"
+            ]
+        },
+
+        {
+            id: 3,
+            name: "RAM",
+            category: "memory",
+            icon: "💾",
+            description:
+                "Random Access Memory temporarily stores data and instructions that the CPU is currently using.",
+            functions: [
+                "Temporarily stores active data",
+                "Helps applications run smoothly",
+                "Provides fast access to data"
+            ]
+        },
+
+        {
+            id: 4,
+            name: "Hard Disk Drive",
+            category: "storage",
+            icon: "💿",
+            description:
+                "A Hard Disk Drive is a storage device used to permanently store files, applications, and operating system data.",
+            functions: [
+                "Stores files",
+                "Stores operating system data",
+                "Provides long-term storage"
+            ]
+        },
+
+        {
+            id: 5,
+            name: "SSD",
+            category: "storage",
+            icon: "📦",
+            description:
+                "A Solid State Drive is a storage device that uses flash memory to store data.",
+            functions: [
+                "Stores files and applications",
+                "Provides faster data access",
+                "Improves system boot speed"
+            ]
+        },
+
+        {
+            id: 6,
+            name: "Keyboard",
+            category: "input",
+            icon: "⌨️",
+            description:
+                "A keyboard is an input device used to enter text, commands, numbers, and other information.",
+            functions: [
+                "Enters text",
+                "Enters commands",
+                "Provides shortcut keys"
+            ]
+        },
+
+        {
+            id: 7,
+            name: "Mouse",
+            category: "input",
+            icon: "🖱️",
+            description:
+                "A mouse is a pointing input device used to control the cursor and interact with graphical interfaces.",
+            functions: [
+                "Controls the cursor",
+                "Selects objects",
+                "Allows clicking and dragging"
+            ]
+        },
+
+        {
+            id: 8,
+            name: "Monitor",
+            category: "output",
+            icon: "🖥️",
+            description:
+                "A monitor is an output device that displays visual information produced by the computer.",
+            functions: [
+                "Displays images",
+                "Displays text",
+                "Displays videos and applications"
+            ]
+        },
+
+        {
+            id: 9,
+            name: "Printer",
+            category: "output",
+            icon: "🖨️",
+            description:
+                "A printer is an output device that produces a physical copy of digital documents and images.",
+            functions: [
+                "Prints documents",
+                "Prints images",
+                "Produces physical output"
+            ]
+        },
+
+        {
+            id: 10,
+            name: "Power Supply Unit",
+            category: "power",
+            icon: "🔌",
+            description:
+                "The Power Supply Unit provides electrical power to the components inside a computer.",
+            functions: [
+                "Converts electrical power",
+                "Supplies power to components",
+                "Helps protect components from power issues"
+            ]
+        },
+
+        {
+            id: 11,
+            name: "Graphics Processing Unit",
+            category: "processing",
+            icon: "🎮",
+            description:
+                "The GPU processes and renders graphics, images, and video for display.",
+            functions: [
+                "Processes graphics",
+                "Renders images and video",
+                "Supports gaming and visual applications"
+            ]
+        },
+
+        {
+            id: 12,
+            name: "Cooling Fan",
+            category: "power",
+            icon: "🌀",
+            description:
+                "A cooling fan helps maintain safe temperatures by moving air through the computer system.",
+            functions: [
+                "Moves air",
+                "Reduces component temperature",
+                "Helps prevent overheating"
+            ]
+        }
+
+    ];
+
+
+    /* =====================================================
+       QUIZ DATA
+       ===================================================== */
+
+    const quizData = [
+
+        {
+            question:
+                "Which component is considered the main processor of a computer?",
+            choices: [
+                "RAM",
+                "CPU",
+                "Monitor",
+                "Keyboard"
+            ],
+            answer: "CPU"
+        },
+
+        {
+            question:
+                "Which component temporarily stores data currently being used by the computer?",
+            choices: [
+                "SSD",
+                "RAM",
+                "Printer",
+                "Power Supply"
+            ],
+            answer: "RAM"
+        },
+
+        {
+            question:
+                "Which device is primarily used for entering text?",
+            choices: [
+                "Monitor",
+                "Keyboard",
+                "Speaker",
+                "Printer"
+            ],
+            answer: "Keyboard"
+        },
+
+        {
+            question:
+                "Which component provides electrical power to computer components?",
+            choices: [
+                "CPU",
+                "RAM",
+                "PSU",
+                "SSD"
+            ],
+            answer: "PSU"
+        },
+
+        {
+            question:
+                "Which device displays visual information from a computer?",
+            choices: [
+                "Mouse",
+                "Keyboard",
+                "Monitor",
+                "RAM"
+            ],
+            answer: "Monitor"
+        },
+
+        {
+            question:
+                "Which storage device uses flash memory?",
+            choices: [
+                "SSD",
+                "CPU",
+                "Monitor",
+                "Mouse"
+            ],
+            answer: "SSD"
+        },
+
+        {
+            question:
+                "Which component connects most of the internal computer components?",
+            choices: [
+                "Motherboard",
+                "Printer",
+                "Keyboard",
+                "Monitor"
+            ],
+            answer: "Motherboard"
+        },
+
+        {
+            question:
+                "Which device controls the pointer or cursor?",
+            choices: [
+                "CPU",
+                "Mouse",
+                "RAM",
+                "PSU"
+            ],
+            answer: "Mouse"
+        },
+
+        {
+            question:
+                "Which component is primarily responsible for processing graphics?",
+            choices: [
+                "GPU",
+                "RAM",
+                "Keyboard",
+                "SSD"
+            ],
+            answer: "GPU"
+        },
+
+        {
+            question:
+                "Which component helps prevent the computer from overheating?",
+            choices: [
+                "Cooling Fan",
+                "Keyboard",
+                "SSD",
+                "Printer"
+            ],
+            answer: "Cooling Fan"
+        }
+
+    ];
+
+
+    /* =====================================================
+       VARIABLES
+       ===================================================== */
+
+    let currentQuestion = 0;
+    let score = 0;
+    let selectedAnswer = null;
+    let learned = JSON.parse(
+        localStorage.getItem("learnedHardware") || "[]"
+    );
+
+    let attempts = Number(
+        localStorage.getItem("quizAttempts") || 0
+    );
+
+    let latestScore = Number(
+        localStorage.getItem("latestQuizScore") || 0
+    );
+
+    let selectedHardwareId = null;
+
+
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
+
+    const navButtons =
+        document.querySelectorAll(".nav-btn");
+
+    navButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const section =
+                button.getAttribute("data-section");
+
+            showSection(section);
+
+        });
+
+    });
+
+
+    function showSection(sectionId) {
+
+        document
+            .querySelectorAll(".section")
+            .forEach(section => {
+                section.classList.remove("active");
+            });
+
+        document
+            .getElementById(sectionId)
+            .classList.add("active");
+
+        navButtons.forEach(button => {
+
+            button.classList.remove("active");
+
+            if (
+                button.getAttribute("data-section")
+                === sectionId
+            ) {
+                button.classList.add("active");
+            }
+
+        });
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* =====================================================
+       DISPLAY HARDWARE
+       ===================================================== */
+
+    function displayHardware() {
+
+        const grid =
+            document.getElementById("hardwareGrid");
+
+        const search =
+            document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+        const category =
+            document
+                .getElementById("categoryFilter")
+                .value;
+
+        const filtered =
+            hardwareData.filter(item => {
+
+                const matchesSearch =
+                    item.name
+                        .toLowerCase()
+                        .includes(search);
+
+                const matchesCategory =
+                    category === "all"
+                    || item.category === category;
+
+                return matchesSearch && matchesCategory;
+
+            });
+
+
+        grid.innerHTML = "";
+
+
+        if (filtered.length === 0) {
+
+            grid.innerHTML = `
+                <div class="panel">
+                    <h3>No hardware found.</h3>
+                    <p>Try another search keyword.</p>
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        filtered.forEach(item => {
+
+            const isLearned =
+                learned.includes(item.id);
+
+            const card =
+                document.createElement("div");
+
+            card.className = "hardware-card";
+
+            card.innerHTML = `
+
+                <div class="hardware-image">
+                    ${item.icon}
+                </div>
+
+                <div class="hardware-info">
+
+                    <span class="category">
+                        ${item.category.toUpperCase()}
+                    </span>
+
+                    <h3>
+                        ${item.name}
+                        ${isLearned ? " ✓" : ""}
+                    </h3>
+
+                    <p>
+                        ${item.description}
+                    </p>
+
+                    <button
+                        class="btn"
+                        onclick="openHardware(${item.id})"
+                    >
+                        View Details
+                    </button>
+
+                </div>
+
+            `;
+
+            grid.appendChild(card);
+
+        });
+
+    }
+
+
+    document
+        .getElementById("searchInput")
+        .addEventListener(
+            "input",
+            displayHardware
+        );
+
+
+    document
+        .getElementById("categoryFilter")
+        .addEventListener(
+            "change",
+            displayHardware
+        );
+
+
+    /* =====================================================
+       HARDWARE MODAL
+       ===================================================== */
+
+    function openHardware(id) {
+
+        const item =
+            hardwareData.find(
+                hardware => hardware.id === id
+            );
+
+        selectedHardwareId = id;
+
+        document.getElementById("modalTitle")
+            .textContent = item.name;
+
+        document.getElementById("modalIcon")
+            .textContent = item.icon;
+
+        document.getElementById("modalDescription")
+            .textContent = item.description;
+
+        const functionList =
+            document.getElementById("modalFunctions");
+
+        functionList.innerHTML = "";
+
+        item.functions.forEach(func => {
+
+            const li =
+                document.createElement("li");
+
+            li.textContent = func;
+
+            functionList.appendChild(li);
+
+        });
+
+        document
+            .getElementById("hardwareModal")
+            .classList.add("show");
+
+    }
+
+
+    function closeModal() {
+
+        document
+            .getElementById("hardwareModal")
+            .classList.remove("show");
+
+    }
+
+
+    function markAsLearned() {
+
+        if (
+            selectedHardwareId
+            && !learned.includes(selectedHardwareId)
+        ) {
+
+            learned.push(selectedHardwareId);
+
+            localStorage.setItem(
+                "learnedHardware",
+                JSON.stringify(learned)
+            );
+
+        }
+
+        updateDashboard();
+
+        displayHardware();
+
+        closeModal();
+
+    }
+
+
+    /* =====================================================
+       QUIZ
+       ===================================================== */
+
+    function loadQuestion() {
+
+        selectedAnswer = null;
+
+        const question =
+            quizData[currentQuestion];
+
+        document.getElementById("quizNumber")
+            .textContent =
+            `Question ${currentQuestion + 1}`;
+
+        document.getElementById("quizQuestion")
+            .textContent =
+            question.question;
+
+        document.getElementById("quizProgress")
+            .textContent =
+            `${currentQuestion + 1} / ${quizData.length}`;
+
+        const choices =
+            document.getElementById("choices");
+
+        choices.innerHTML = "";
+
+        document.getElementById("nextBtn")
+            .disabled = true;
+
+
+        question.choices.forEach(choice => {
+
+            const button =
+                document.createElement("button");
+
+            button.className = "choice";
+
+            button.textContent = choice;
+
+            button.addEventListener(
+                "click",
+                () => selectAnswer(
+                    button,
+                    choice
+                )
+            );
+
+            choices.appendChild(button);
+
+        });
+
+    }
+
+
+    function selectAnswer(button, answer) {
+
+        if (selectedAnswer !== null) {
+            return;
+        }
+
+        selectedAnswer = answer;
+
+        const question =
+            quizData[currentQuestion];
+
+        const choices =
+            document.querySelectorAll(".choice");
+
+        choices.forEach(choice => {
+
+            if (
+                choice.textContent
+                === question.answer
+            ) {
+                choice.classList.add("correct");
+            }
+
+            if (
+                choice.textContent === answer
+                && answer !== question.answer
+            ) {
+                choice.classList.add("wrong");
+            }
+
+            choice.disabled = true;
+
+        });
+
+
+        if (answer === question.answer) {
+            score++;
+        }
+
+        document.getElementById("nextBtn")
+            .disabled = false;
+
+    }
+
+
+    function nextQuestion() {
+
+        if (selectedAnswer === null) {
+            return;
+        }
+
+        currentQuestion++;
+
+        if (
+            currentQuestion >= quizData.length
+        ) {
+
+            finishQuiz();
+
+        } else {
+
+            loadQuestion();
+
+        }
+
+    }
+
+
+    function finishQuiz() {
+
+        const percentage =
+            Math.round(
+                (score / quizData.length) * 100
+            );
+
+        attempts++;
+
+        latestScore = percentage;
+
+        localStorage.setItem(
+            "quizAttempts",
+            attempts
+        );
+
+        localStorage.setItem(
+            "latestQuizScore",
+            latestScore
+        );
+
+
+        document.getElementById("quizBox")
+            .innerHTML = `
+
+                <div class="result">
+
+                    <h2>Quiz Completed!</h2>
+
+                    <div class="result-score">
+                        ${percentage}%
+                    </div>
+
+                    <p>
+                        You got
+                        <strong>
+                            ${score}
+                        </strong>
+                        out of
+                        <strong>
+                            ${quizData.length}
+                        </strong>
+                        questions correct.
+                    </p>
+
+                    <br>
+
+                    <button
+                        class="btn"
+                        onclick="restartQuiz()"
+                    >
+                        Try Again
+                    </button>
+
+                    <button
+                        class="btn secondary"
+                        onclick="showSection('hardware')"
+                    >
+                        Review Hardware
+                    </button>
+
+                </div>
+
+            `;
+
+
+        updateDashboard();
+
+    }
+
+
+    function restartQuiz() {
+
+        currentQuestion = 0;
+
+        score = 0;
+
+        selectedAnswer = null;
+
+        document.getElementById("quizBox")
+            .innerHTML = `
+
+            <div class="quiz-number" id="quizNumber">
+                Question 1
+            </div>
+
+            <div
+                class="quiz-question"
+                id="quizQuestion"
+            >
+                Loading question...
+            </div>
+
+            <div
+                class="choices"
+                id="choices"
+            ></div>
+
+            <div class="quiz-actions">
+
+                <span id="quizProgress">
+                    1 / ${quizData.length}
+                </span>
+
+                <button
+                    class="btn"
+                    id="nextBtn"
+                    onclick="nextQuestion()"
+                    disabled
+                >
+                    Next
+                </button>
+
+            </div>
+        `;
+
+        loadQuestion();
+
+    }
+
+
+    /* =====================================================
+       DASHBOARD
+       ===================================================== */
+
+    function updateDashboard() {
+
+        document.getElementById("hardwareCount")
+            .textContent =
+            hardwareData.length;
+
+        document.getElementById("quizScore")
+            .textContent =
+            latestScore + "%";
+
+        document.getElementById("quizTaken")
+            .textContent =
+            attempts;
+
+        document.getElementById("learnedCount")
+            .textContent =
+            learned.length;
+
+
+        const progress =
+            Math.round(
+                (learned.length /
+                hardwareData.length) * 100
+            );
+
+        document.getElementById("progressText")
+            .textContent = progress;
+
+        document.getElementById("progressBar")
+            .style.width = progress + "%";
+
+    }
+
+
+    /* =====================================================
+       CLOSE MODAL WHEN CLICKING OUTSIDE
+       ===================================================== */
+
+    document
+        .getElementById("hardwareModal")
+        .addEventListener("click", event => {
+
+            if (
+                event.target.id
+                === "hardwareModal"
+            ) {
+                closeModal();
+            }
+
+        });
+
+
+    /* =====================================================
+       INITIALIZE SYSTEM
+       ===================================================== */
+
+    displayHardware();
+
+    updateDashboard();
+
+    loadQuestion();
+
+</script>
+
+</body>
+</html>
