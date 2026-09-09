@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Computer Hardware Identification & Learning System</title>
-
     <style>
         * {
             margin: 0;
@@ -14,52 +12,42 @@
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
-
         body {
             background: #f1f5f9;
             color: #1e293b;
         }
-
         /* ================= HEADER ================= */
-
         header {
             background: linear-gradient(135deg, #0f172a, #1d4ed8);
             color: white;
             padding: 25px 7%;
         }
-
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 20px;
         }
-
         .logo h1 {
             font-size: 25px;
             margin-bottom: 6px;
         }
-
         .logo p {
             color: #cbd5e1;
             font-size: 14px;
         }
-
         .student-box {
             background: rgba(255,255,255,0.12);
             padding: 12px 18px;
             border-radius: 10px;
             text-align: center;
         }
-
         .student-box span {
             display: block;
             font-size: 12px;
             color: #dbeafe;
         }
-
         /* ================= NAVIGATION ================= */
-
         nav {
             background: white;
             padding: 12px 7%;
@@ -68,14 +56,12 @@
             top: 0;
             z-index: 100;
         }
-
         nav ul {
             list-style: none;
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-
         nav button {
             border: none;
             background: transparent;
@@ -85,44 +71,34 @@
             color: #475569;
             font-weight: bold;
         }
-
-        nav button\:hover,
+        nav button:hover,
         nav button.active {
             background: #dbeafe;
             color: #1d4ed8;
         }
-
         /* ================= MAIN ================= */
-
         main {
             width: 86%;
             max-width: 1200px;
             margin: 30px auto;
         }
-
         .section {
             display: none;
         }
-
         .section.active {
             display: block;
         }
-
         .page-title {
             margin-bottom: 25px;
         }
-
         .page-title h2 {
             color: #0f172a;
             margin-bottom: 6px;
         }
-
         .page-title p {
             color: #64748b;
         }
-
         /* ================= DASHBOARD ================= */
-
         .welcome {
             background: linear-gradient(135deg, #2563eb, #0ea5e9);
             color: white;
@@ -130,74 +106,61 @@
             border-radius: 15px;
             margin-bottom: 25px;
         }
-
         .welcome h2 {
             font-size: 30px;
             margin-bottom: 10px;
         }
-
         .welcome p {
             color: #e0f2fe;
         }
-
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 18px;
             margin-bottom: 30px;
         }
-
         .stat-card {
             background: white;
             padding: 22px;
             border-radius: 12px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.07);
         }
-
         .stat-card h3 {
             font-size: 28px;
             color: #2563eb;
             margin-bottom: 5px;
         }
-
         .stat-card p {
             color: #64748b;
             font-size: 14px;
         }
-
         .dashboard-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 20px;
         }
-
         .panel {
             background: white;
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.07);
         }
-
         .panel h3 {
             margin-bottom: 18px;
         }
-
         .progress-container {
             background: #e2e8f0;
             height: 12px;
             border-radius: 20px;
             overflow: hidden;
         }
-
         .progress-bar {
             background: #2563eb;
             height: 100%;
             width: 0%;
             transition: 0.4s;
         }
-
         /* ================= HARDWARE ================= */
-
         .toolbar {
             background: white;
             padding: 18px;
@@ -207,7 +170,6 @@
             gap: 12px;
             flex-wrap: wrap;
         }
-
         .toolbar input,
         .toolbar select {
             padding: 12px;
@@ -217,13 +179,11 @@
             flex: 1;
             min-width: 200px;
         }
-
         .hardware-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
-
         .hardware-card {
             background: white;
             border-radius: 12px;
@@ -231,14 +191,11 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.07);
             transition: 0.25s;
         }
-
-        .hardware-card\:hover {
+        .hardware-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
-
         /* HARDWARE PICTURE */
-
         .hardware-image {
             height: 190px;
             background: #ffffff;
@@ -249,22 +206,18 @@
             padding: 10px;
             box-sizing: border-box;
         }
-
         .hardware-image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             display: block;
         }
-
         .hardware-info {
             padding: 20px;
         }
-
         .hardware-info h3 {
             margin-bottom: 8px;
         }
-
         .category {
             display: inline-block;
             background: #dbeafe;
@@ -274,14 +227,12 @@
             border-radius: 20px;
             margin-bottom: 10px;
         }
-
         .hardware-info p {
             color: #64748b;
             font-size: 14px;
             line-height: 1.5;
             margin-bottom: 15px;
         }
-
         .btn {
             border: none;
             padding: 11px 17px;
@@ -291,18 +242,14 @@
             cursor: pointer;
             font-weight: bold;
         }
-
-        .btn\:hover {
+        .btn:hover {
             background: #1d4ed8;
         }
-
         .btn.secondary {
             background: #e2e8f0;
             color: #334155;
         }
-
         /* ================= MODAL ================= */
-
         .modal {
             display: none;
             position: fixed;
@@ -313,11 +260,9 @@
             padding: 20px;
             z-index: 999;
         }
-
         .modal.show {
             display: flex;
         }
-
         .modal-content {
             background: white;
             max-width: 650px;
@@ -327,20 +272,17 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
         }
-
         .close {
             background: none;
             border: none;
             font-size: 25px;
             cursor: pointer;
         }
-
         .detail-image {
             width: 100%;
             height: 260px;
@@ -348,38 +290,31 @@
             border-radius: 12px;
             margin-bottom: 20px;
         }
-
         .detail-list {
             margin: 15px 0;
             padding-left: 20px;
             line-height: 1.8;
         }
-
         /* ================= QUIZ ================= */
-
         .quiz-box {
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.07);
         }
-
         .quiz-number {
             color: #2563eb;
             font-weight: bold;
             margin-bottom: 12px;
         }
-
         .quiz-question {
             font-size: 22px;
             margin-bottom: 25px;
         }
-
         .choices {
             display: grid;
             gap: 12px;
         }
-
         .choice {
             border: 2px solid #e2e8f0;
             background: white;
@@ -389,42 +324,34 @@
             text-align: left;
             transition: 0.2s;
         }
-
-        .choice\:hover {
+        .choice:hover {
             border-color: #2563eb;
             background: #eff6ff;
         }
-
         .choice.correct {
             border-color: #16a34a;
             background: #dcfce7;
         }
-
         .choice.wrong {
             border-color: #dc2626;
             background: #fee2e2;
         }
-
         .quiz-actions {
             margin-top: 25px;
             display: flex;
             justify-content: space-between;
         }
-
         .result {
             text-align: center;
             padding: 30px;
         }
-
         .result-score {
             font-size: 55px;
             color: #2563eb;
             font-weight: bold;
             margin: 15px 0;
         }
-
         /* ================= FOOTER ================= */
-
         footer {
             margin-top: 50px;
             background: #0f172a;
@@ -433,38 +360,30 @@
             padding: 25px;
             font-size: 13px;
         }
-
         /* ================= RESPONSIVE ================= */
-
         @media(max-width: 900px) {
             .stats {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .hardware-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
         }
-
         @media(max-width: 600px) {
             .header-content {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .stats,
             .hardware-grid {
                 grid-template-columns: 1fr;
             }
-
             main {
                 width: 92%;
             }
-
             .welcome h2 {
                 font-size: 23px;
             }
@@ -476,23 +395,19 @@
         }
     </style>
 </head>
-
 <body>
-
 <header>
     <div class="header-content">
         <div class="logo">
             <h1>💻 Hardware Learning System</h1>
             <p>Computer Hardware Identification and Learning System</p>
         </div>
-
         <div class="student-box">
             <span>STUDENT</span>
             <strong id="studentName">Computer Technology</strong>
         </div>
     </div>
 </header>
-
 <nav>
     <ul>
         <li>
@@ -500,19 +415,16 @@
                 🏠 Dashboard
             </button>
         </li>
-
         <li>
             <button class="nav-btn" data-section="hardware">
                 🔧 Hardware
             </button>
         </li>
-
         <li>
             <button class="nav-btn" data-section="quiz">
                 📝 Identification Quiz
             </button>
         </li>
-
         <li>
             <button class="nav-btn" data-section="about">
                 ℹ️ About
@@ -520,13 +432,9 @@
         </li>
     </ul>
 </nav>
-
 <main>
-
     <!-- ================= DASHBOARD ================= -->
-
     <section id="dashboard" class="section active">
-
         <div class="welcome">
             <h2>Welcome to the Hardware Learning System</h2>
             <p>
@@ -534,71 +442,49 @@
                 computer hardware components.
             </p>
         </div>
-
         <div class="stats">
-
             <div class="stat-card">
                 <h3 id="hardwareCount">0</h3>
                 <p>Hardware Components</p>
             </div>
-
             <div class="stat-card">
                 <h3 id="quizScore">0%</h3>
                 <p>Latest Quiz Score</p>
             </div>
-
             <div class="stat-card">
                 <h3 id="quizTaken">0</h3>
                 <p>Quiz Attempts</p>
             </div>
-
             <div class="stat-card">
                 <h3 id="learnedCount">0</h3>
                 <p>Components Learned</p>
             </div>
-
         </div>
-
         <div class="dashboard-grid">
-
             <div class="panel">
                 <h3>Learning Progress</h3>
-
                 <p style="margin-bottom:10px;">
                     <span id="progressText">0</span>% completed
                 </p>
-
                 <div class="progress-container">
                     <div class="progress-bar" id="progressBar"></div>
                 </div>
             </div>
-
             <div class="panel">
-
                 <h3>Quick Start</h3>
-
                 <p style="color:#64748b; line-height:1.6;">
                     Explore the hardware components first, then take the
                     identification quiz to test your knowledge.
                 </p>
-
-                
-
+                <br>
                 <button class="btn" onclick="showSection('hardware')">
                     Start Learning
                 </button>
-
             </div>
-
         </div>
-
     </section>
-
-
     <!-- ================= HARDWARE ================= -->
-
     <section id="hardware" class="section">
-
         <div class="page-title">
             <h2>Computer Hardware Components</h2>
             <p>
@@ -606,17 +492,13 @@
                 of different computer hardware components.
             </p>
         </div>
-
         <div class="toolbar">
-
             <input
                 type="text"
                 id="searchInput"
                 placeholder="🔍 Search hardware..."
             >
-
             <select id="categoryFilter">
-
                 <option value="all">All Categories</option>
                 <option value="processing">Processing</option>
                 <option value="memory">Memory</option>
@@ -625,51 +507,35 @@
                 <option value="output">Output</option>
                 <option value="power">Power</option>
                 <option value="connectivity">Connectivity</option>
-
             </select>
-
         </div>
-
         <div class="hardware-grid" id="hardwareGrid"></div>
-
     </section>
-
-
     <!-- ================= QUIZ ================= -->
-
     <section id="quiz" class="section">
-
         <div class="page-title">
             <h2>Hardware Identification Quizzes</h2>
-            <p>Choose a quiz. Each quiz contains 15 different questions about the 37 computer hardware components.</p>
+            <p>Choose a quiz. Each quiz contains 17 different questions about the 37 computer hardware components.</p>
         </div>
-
-        <div class="quiz-selector" id="quizSelector" style="display\:flex;gap:10px;flex-wrap\:wrap;margin-bottom:20px;">
+        <div class="quiz-selector" id="quizSelector" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
             <button class="btn quiz-select active" onclick="selectQuiz('Quiz 1')">Quiz 1</button>
             <button class="btn quiz-select" onclick="selectQuiz('Quiz 2')">Quiz 2</button>
             <button class="btn quiz-select" onclick="selectQuiz('Quiz 3')">Quiz 3</button>
             <button class="btn quiz-select" onclick="selectQuiz('Quiz 4')">Quiz 4</button>
             <button class="btn quiz-select" onclick="selectQuiz('Quiz 5')">Quiz 5</button>
         </div>
-
         <div class="quiz-box" id="quizBox">
-
             <div class="quiz-number" id="quizNumber">
                 ${selectedQuiz} — Question 1
             </div>
-
             <div class="quiz-question" id="quizQuestion">
                 Loading question...
             </div>
-
             <div class="choices" id="choices"></div>
-
             <div class="quiz-actions">
-
                 <span id="quizProgress">
-                    1 / 15
+                    1 / 17
                 </span>
-
                 <button
                     class="btn"
                     id="nextBtn"
@@ -678,128 +544,84 @@
                 >
                     Next
                 </button>
-
             </div>
-
         </div>
-
     </section>
-
-
     <!-- ================= ABOUT ================= -->
-
     <section id="about" class="section">
-
         <div class="page-title">
             <h2>About the System</h2>
-
             <p>
                 Development of a Web-Based Computer Hardware
                 Identification and Learning System.
             </p>
         </div>
-
         <div class="panel">
-
             <h3>System Purpose</h3>
-
             <p style="line-height:1.8; color:#64748b;">
                 This web-based system is designed to help Computer Technology
                 students learn and identify different computer hardware
                 components. It provides educational information, pictures,
                 component descriptions, functions, and an identification quiz.
             </p>
-
-            
-
+            <br>
             <h3>Learning Objectives</h3>
-
             <ul class="detail-list">
-
                 <li>Identify common computer hardware components.</li>
-
                 <li>Understand the basic functions of each component.</li>
-
                 <li>Improve hardware identification skills.</li>
-
                 <li>Assess student knowledge through an interactive quiz.</li>
-
                 <li>Monitor learning progress.</li>
-
             </ul>
-
         </div>
-
     </section>
-
 </main>
-
 <footer>
     <p>
         © 2026 Computer Technology Department |
         Hardware Identification and Learning System
     </p>
 </footer>
-
-
 <!-- ================= MODAL ================= -->
-
 <div class="modal" id="hardwareModal">
-
     <div class="modal-content">
-
         <div class="modal-header">
-
             <h2 id="modalTitle">
                 Hardware
             </h2>
-
             <button class="close" onclick="closeModal()">
                 ×
             </button>
-
         </div>
-
         <img
             id="modalImage"
             class="detail-image"
             src=""
             alt="Hardware Image"
         >
-
         <p id="modalDescription"></p>
-
         <h3 style="margin-top:20px;">
             Main Functions
         </h3>
-
         <ul class="detail-list" id="modalFunctions"></ul>
-
         <button
             class="btn"
             onclick="markAsLearned()"
         >
             ✓ Mark as Learned
         </button>
-
     </div>
-
 </div>
-
-
 <script>
-
     /* =====================================================
        HARDWARE DATA
        ===================================================== */
-
     const hardwareData = [
-
         {
             id: 1,
             name: "CPU",
             category: "processing",
-            image: "https\://images.tcdn.com.br/img/img\_prod/237837/processador\_intel\_core\_i5\_8600\_sr3x0\_3\_10ghz\_1151\_8a\_geracao\_oem\_s\_cooler\_62429\_1\_3e27583b9a16bc5203fb98bd8e2bbe6d.png",
+            image: "https://images.tcdn.com.br/img/img_prod/237837/processador_intel_core_i5_8600_sr3x0_3_10ghz_1151_8a_geracao_oem_s_cooler_62429_1_3e27583b9a16bc5203fb98bd8e2bbe6d.png",
             description:
                 "The Central Processing Unit is the main processor of a computer. It executes instructions and performs calculations.",
             functions: [
@@ -808,12 +630,11 @@
                 "Controls computer operations"
             ]
         },
-
         {
             id: 2,
             name: "Motherboard",
             category: "processing",
-            image: "https\://www\.pngmart.com/files/7/Motherboard-PNG-HD.png",
+            image: "https://www.pngmart.com/files/7/Motherboard-PNG-HD.png",
             description:
                 "The motherboard is the main circuit board that connects and allows communication between computer components.",
             functions: [
@@ -822,12 +643,11 @@
                 "Provides expansion slots and connectors"
             ]
         },
-
         {
             id: 3,
             name: "RAM",
             category: "memory",
-            image: "https\://images.kabum.com.br/produtos/fotos/sync\_mirakl/163762/xlarge/Mem-ria-RAM-Kingston-8GB-2400MHz-DDR4-CL17-KVR24N17S8-8\_1778657022.jpg",
+            image: "https://images.kabum.com.br/produtos/fotos/sync_mirakl/163762/xlarge/Mem-ria-RAM-Kingston-8GB-2400MHz-DDR4-CL17-KVR24N17S8-8_1778657022.jpg",
             description:
                 "Random Access Memory temporarily stores data and instructions that the CPU is currently using.",
             functions: [
@@ -836,12 +656,11 @@
                 "Provides fast access to data"
             ]
         },
-
         {
             id: 4,
             name: "Hard Disk Drive",
             category: "storage",
-            image: "https\://cdn11.bigcommerce.com/s-qfzamxn9kz/images/stencil/original/products/345432/527272/20190812\_145023\_\_86017.1718390971.jpg?c=2",
+            image: "https://cdn11.bigcommerce.com/s-qfzamxn9kz/images/stencil/original/products/345432/527272/20190812_145023__86017.1718390971.jpg?c=2",
             description:
                 "A Hard Disk Drive is a storage device used to permanently store files, applications, and operating system data.",
             functions: [
@@ -850,12 +669,11 @@
                 "Provides long-term storage"
             ]
         },
-
         {
             id: 5,
             name: "SSD",
             category: "storage",
-            image: "https\://bizweb.dktcdn.net/thumb/grande/100/275/158/products/31189576-2062318257426447-3489188735000510464-n.jpg?v=1524559339420",
+            image: "https://bizweb.dktcdn.net/thumb/grande/100/275/158/products/31189576-2062318257426447-3489188735000510464-n.jpg?v=1524559339420",
             description:
                 "A Solid State Drive is a storage device that uses flash memory to store data.",
             functions: [
@@ -864,12 +682,11 @@
                 "Improves system boot speed"
             ]
         },
-
         {
             id: 6,
             name: "Keyboard",
             category: "input",
-            image: "https\://commons.wikimedia.org/wiki/Special\:Redirect/file/Computer%20Keyboard.jpg",
+            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Computer%20Keyboard.jpg",
             description:
                 "A keyboard is an input device used to enter text, commands, numbers, and other information.",
             functions: [
@@ -878,12 +695,11 @@
                 "Provides shortcut keys"
             ]
         },
-
         {
             id: 7,
             name: "Mouse",
             category: "input",
-            image: "https\://commons.wikimedia.org/wiki/Special\:Redirect/file/A%20computer%20mouse.jpg",
+            image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20computer%20mouse.jpg",
             description:
                 "A mouse is a pointing input device used to control the cursor and interact with graphical interfaces.",
             functions: [
@@ -892,12 +708,11 @@
                 "Allows clicking and dragging"
             ]
         },
-
         {
             id: 8,
             name: "Monitor",
             category: "output",
-            image: "https\://ak-asset.jarir.com/akeneo-prod/asset/m1images/5/4/540118.jpg",
+            image: "https://ak-asset.jarir.com/akeneo-prod/asset/m1images/5/4/540118.jpg",
             description:
                 "A monitor is an output device that displays visual information produced by the computer.",
             functions: [
@@ -906,12 +721,11 @@
                 "Displays videos and applications"
             ]
         },
-
         {
             id: 9,
             name: "Printer",
             category: "output",
-            image: "https\://media.currys.biz/i/currysprod/10292228?%24l-large%24=&fmt=auto",
+            image: "https://media.currys.biz/i/currysprod/10292228?%24l-large%24=&fmt=auto",
             description:
                 "A printer is an output device that produces a physical copy of digital documents and images.",
             functions: [
@@ -920,12 +734,11 @@
                 "Produces physical output"
             ]
         },
-
         {
             id: 10,
             name: "Power Supply Unit",
             category: "power",
-            image: "https\://buildpremiumpc.com/wp-content/uploads/2021/04/Power-Supply-Unit-PSU.jpg",
+            image: "https://buildpremiumpc.com/wp-content/uploads/2021/04/Power-Supply-Unit-PSU.jpg",
             description:
                 "The Power Supply Unit provides electrical power to the components inside a computer.",
             functions: [
@@ -934,12 +747,11 @@
                 "Helps protect components from power issues"
             ]
         },
-
         {
             id: 11,
             name: "Graphics Processing Unit",
             category: "processing",
-            image: "https\://i5-mx.walmartimages.com/mg/gm/3pp/asr/b7568404-158f-4264-93ad-54c10c414e59.22ed9c4b7c82f03f4bc26ca4da0e8ab3.jpeg?odnBg=ffffff&odnHeight=2000&odnWidth=2000",
+            image: "https://i5-mx.walmartimages.com/mg/gm/3pp/asr/b7568404-158f-4264-93ad-54c10c414e59.22ed9c4b7c82f03f4bc26ca4da0e8ab3.jpeg?odnBg=ffffff&odnHeight=2000&odnWidth=2000",
             description:
                 "The GPU processes and renders graphics, images, and video for display.",
             functions: [
@@ -948,12 +760,11 @@
                 "Supports gaming and visual applications"
             ]
         },
-
         {
             id: 12,
             name: "Cooling Fan",
             category: "power",
-            image: "https\://media.bunnings.com.au/api/public/content/a8d8e8785b054a7c95f9c4785bf1cb4e?t=w700dpr1&v=402cd16c",
+            image: "https://media.bunnings.com.au/api/public/content/a8d8e8785b054a7c95f9c4785bf1cb4e?t=w700dpr1&v=402cd16c",
             description:
                 "A cooling fan helps maintain safe temperatures by moving air through the computer system.",
             functions: [
@@ -962,12 +773,11 @@
                 "Helps prevent overheating"
             ]
         },
-
         {
             id: 13,
             name: "CPU Cooler",
             category: "power",
-            image: "https\://www\.bhphotovideo.com/images/images1500x1500/be\_quiet\_bk007\_pure\_rock\_2\_black\_1563866.jpg",
+            image: "https://www.bhphotovideo.com/images/images1500x1500/be_quiet_bk007_pure_rock_2_black_1563866.jpg",
             description:
                 "A CPU cooler removes heat produced by the processor and helps keep the CPU at a safe operating temperature.",
             functions: [
@@ -976,12 +786,11 @@
                 "Maintains stable CPU performance"
             ]
         },
-
         {
             id: 14,
             name: "Computer Case",
             category: "power",
-            image: "https\://us.123rf.com/450wm/kitaec/kitaec1207/kitaec120700082/14532934-computer-system-unit-on-a-white-background.jpg",
+            image: "https://us.123rf.com/450wm/kitaec/kitaec1207/kitaec120700082/14532934-computer-system-unit-on-a-white-background.jpg",
             description:
                 "The computer case is the enclosure that houses and protects the internal hardware components.",
             functions: [
@@ -990,12 +799,11 @@
                 "Helps with airflow and cooling"
             ]
         },
-
         {
             id: 15,
             name: "Sound Card",
             category: "processing",
-            image: "https\://pcbox.vtexassets.com/arquivos/ids/391649-853-853/70SB157000000\_GAL\_1.jpg?v=637892107349370000",
+            image: "https://pcbox.vtexassets.com/arquivos/ids/391649-853-853/70SB157000000_GAL_1.jpg?v=637892107349370000",
             description:
                 "A sound card is a hardware component that processes audio signals for recording and playback.",
             functions: [
@@ -1004,12 +812,11 @@
                 "Supports audio recording"
             ]
         },
-
         {
             id: 16,
             name: "Network Interface Card",
             category: "input",
-            image: "https\://img.joomcdn.net/670ba8cccf9874e21aa14c3a04fb03ae427e08a7\_1024\_1024.jpeg",
+            image: "https://img.joomcdn.net/670ba8cccf9874e21aa14c3a04fb03ae427e08a7_1024_1024.jpeg",
             description:
                 "A Network Interface Card allows a computer to connect to a wired or wireless network.",
             functions: [
@@ -1018,12 +825,11 @@
                 "Provides network communication"
             ]
         },
-
         {
             id: 17,
             name: "Webcam",
             category: "input",
-            image: "https\://image.made-in-china.com/202f0j00kUrbFczKCqoG/Customized-HD-1080P-Driver-Free-Streaming-Plug-and-Play-PC-Cameras-with-Microphone-for-Online-Classes-Gaming-Video-Conference.webp",
+            image: "https://image.made-in-china.com/202f0j00kUrbFczKCqoG/Customized-HD-1080P-Driver-Free-Streaming-Plug-and-Play-PC-Cameras-with-Microphone-for-Online-Classes-Gaming-Video-Conference.webp",
             description:
                 "A webcam is an input device that captures video and images and sends them to the computer.",
             functions: [
@@ -1032,12 +838,11 @@
                 "Supports video calls and online meetings"
             ]
         },
-
         {
             id: 18,
             name: "Microphone",
             category: "input",
-            image: "https\://img.danawa.com/prod\_img/500000/421/201/img/3201421\_1.jpg?\_v=20240221111817",
+            image: "https://img.danawa.com/prod_img/500000/421/201/img/3201421_1.jpg?_v=20240221111817",
             description:
                 "A microphone is an input device that captures sound and converts it into digital audio.",
             functions: [
@@ -1046,12 +851,11 @@
                 "Allows communication during calls and meetings"
             ]
         },
-
         {
             id: 19,
             name: "Speakers",
             category: "output",
-            image: "https\://i5.walmartimages.com/seo/Blackweb-Multimedia-Computer-Speaker\_274cbb3b-b6ec-4d28-a9d2-758ccc2ef0b2\_1.cf70e5975dc653a301dc66b9403ccb01.jpeg",
+            image: "https://i5.walmartimages.com/seo/Blackweb-Multimedia-Computer-Speaker_274cbb3b-b6ec-4d28-a9d2-758ccc2ef0b2_1.cf70e5975dc653a301dc66b9403ccb01.jpeg",
             description:
                 "Speakers are output devices that produce sound from audio signals generated by the computer.",
             functions: [
@@ -1060,12 +864,11 @@
                 "Provides audio output"
             ]
         },
-
         {
             id: 20,
             name: "Optical Drive",
             category: "storage",
-            image: "https\://i.ebayimg.com/images/g/VoQAAeSwPHZpdRDj/s-l1200.webp",
+            image: "https://i.ebayimg.com/images/g/VoQAAeSwPHZpdRDj/s-l1200.webp",
             description:
                 "An optical drive is a device that reads or writes data using CDs, DVDs, or other optical discs.",
             functions: [
@@ -1074,12 +877,11 @@
                 "Allows access to stored disc content"
             ]
         },
-
         {
             id: 21,
             name: "USB Flash Drive",
             category: "storage",
-            image: "https\://media.e.leclerc/5908267920848\_1",
+            image: "https://media.e.leclerc/5908267920848_1",
             description:
                 "A USB flash drive is a portable storage device used to save and transfer digital files.",
             functions: [
@@ -1088,12 +890,11 @@
                 "Provides portable storage"
             ]
         },
-
         {
             id: 22,
             name: "Wi-Fi Adapter",
             category: "input",
-            image: "https\://simple.ripley.com.pe/product/\_next/image?q=100&url=https%3A%2F%2Frimage.ripley.com.pe%2Fhome.ripley%2FAttachment%2FMKP%2F5679%2FPMP20001134306%2Ffull\_image-1.jpeg&w=3840",
+            image: "https://simple.ripley.com.pe/product/_next/image?q=100&url=https%3A%2F%2Frimage.ripley.com.pe%2Fhome.ripley%2FAttachment%2FMKP%2F5679%2FPMP20001134306%2Ffull_image-1.jpeg&w=3840",
             description:
                 "A Wi-Fi adapter allows a computer to connect to wireless networks and access the internet.",
             functions: [
@@ -1102,12 +903,11 @@
                 "Enables wireless internet access"
             ]
         },
-
         {
             id: 23,
             name: "Heatsink",
             category: "power",
-            image: "https\://image.coupangcdn.com/image/vendor\_inventory/3c61/4504cfba4d79dc2d42eaf382a1ae91736302d5b5df4779a98540e6351240.jpg",
+            image: "https://image.coupangcdn.com/image/vendor_inventory/3c61/4504cfba4d79dc2d42eaf382a1ae91736302d5b5df4779a98540e6351240.jpg",
             description:
                 "A heatsink is a metal component that absorbs and dissipates heat produced by computer hardware.",
             functions: [
@@ -1116,12 +916,11 @@
                 "Helps prevent overheating"
             ]
         },
-
         {
             id: 24,
             name: "CMOS Battery",
             category: "power",
-            image: "https\://www\.dunyagrup.com/images/thumbnails/640/640/detailed/705/lenovo-01lm046-masaustu-bilgisayar-anakart-mainboard-5.jpg",
+            image: "https://www.dunyagrup.com/images/thumbnails/640/640/detailed/705/lenovo-01lm046-masaustu-bilgisayar-anakart-mainboard-5.jpg",
             description:
                 "The CMOS battery provides power to maintain important system settings such as the date, time, and BIOS settings.",
             functions: [
@@ -1130,12 +929,11 @@
                 "Provides backup power to the motherboard"
             ]
         },
-
         {
             id: 25,
             name: "Touchpad",
             category: "input",
-            image: "https\://cdn11.bigcommerce.com/s-qt1c6pqa7l/images/stencil/1280x1280/products/204167/303455/Inspiron\_7391\_Silver\_CMB\_\_33794.1721785960.jpg?c=2",
+            image: "https://cdn11.bigcommerce.com/s-qt1c6pqa7l/images/stencil/1280x1280/products/204167/303455/Inspiron_7391_Silver_CMB__33794.1721785960.jpg?c=2",
             description:
                 "A touchpad is a pointing device commonly found on laptops and is used to control the cursor.",
             functions: [
@@ -1144,12 +942,11 @@
                 "Allows scrolling and gestures"
             ]
         },
-
         {
             id: 26,
             name: "Joystick",
             category: "input",
-            image: "https\://www\.mirao.com.br/media/catalog/product/cache/8f0a4abb573d10d1a4c58443fb5f417c/w/e/wer23423.jpg",
+            image: "https://www.mirao.com.br/media/catalog/product/cache/8f0a4abb573d10d1a4c58443fb5f417c/w/e/wer23423.jpg",
             description:
                 "A joystick is an input device used to control movement and actions in computer games and simulations.",
             functions: [
@@ -1158,12 +955,11 @@
                 "Supports gaming and simulation applications"
             ]
         },
-
         {
             id: 27,
             name: "Projector",
             category: "output",
-            image: "https\://cf-images.dustin.eu/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cquality%3D75%2Cwidth%3D828%2Cfit%3Dcontain/image/d20000100421819/infocus-in3118hd-dlp-projektor.jpg",
+            image: "https://cf-images.dustin.eu/cdn-cgi/image/fit%3Dcontain%2Cformat%3Dauto%2Cquality%3D75%2Cwidth%3D828%2Cfit%3Dcontain/image/d20000100421819/infocus-in3118hd-dlp-projektor.jpg",
             description:
                 "A projector is an output device that displays computer images and videos on a large screen or surface.",
             functions: [
@@ -1171,14 +967,12 @@
                 "Projects videos and presentations",
                 "Provides large-screen visual output"
             ]
-        }
-
-
+        },
         {
             id: 28,
             name: "Chipset",
             category: "processing",
-            image: "https://placehold.co/600x400?text=Chipset",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Intel%20X58%20chipset.jpg",
             description:
                 "A chipset is a group of integrated circuits on the motherboard that helps manage communication between the processor, memory, storage, and other hardware.",
             functions: [
@@ -1191,7 +985,7 @@
             id: 29,
             name: "VGA Port",
             category: "output",
-            image: "https://placehold.co/600x400?text=VGA+Port",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/VGA%20connector.jpg",
             description:
                 "A VGA port is an analog video connector commonly used to connect a computer to a monitor or projector.",
             functions: [
@@ -1204,7 +998,7 @@
             id: 30,
             name: "NIC/Ethernet Port",
             category: "connectivity",
-            image: "https://placehold.co/600x400?text=Ethernet+Port",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ethernet%20RJ45%20connector.jpg",
             description:
                 "A NIC/Ethernet port is a network connection interface that allows a computer to connect to a wired network using an Ethernet cable.",
             functions: [
@@ -1217,7 +1011,7 @@
             id: 31,
             name: "BIOS/UEFI",
             category: "processing",
-            image: "https://placehold.co/600x400?text=BIOS%2FUEFI",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/UEFI%20BIOS.jpg",
             description:
                 "BIOS/UEFI is motherboard firmware that initializes hardware and starts the process of loading the operating system when a computer is turned on.",
             functions: [
@@ -1230,7 +1024,7 @@
             id: 32,
             name: "I/O Ports",
             category: "connectivity",
-            image: "https://placehold.co/600x400?text=I%2FO+Ports",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Computer%20motherboard%20rear%20I-O%20panel.jpg",
             description:
                 "I/O ports are physical connectors on a computer used to connect input, output, storage, display, and other peripheral devices.",
             functions: [
@@ -1243,7 +1037,7 @@
             id: 33,
             name: "Memory Card",
             category: "storage",
-            image: "https://placehold.co/600x400?text=Memory+Card",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/SD%20card.jpg",
             description:
                 "A memory card is a small removable storage device used to save and transfer digital files such as photos, videos, and documents.",
             functions: [
@@ -1256,7 +1050,7 @@
             id: 34,
             name: "CD/DVD",
             category: "storage",
-            image: "https://placehold.co/600x400?text=CD%2FDVD",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Compact%20disc.jpg",
             description:
                 "A CD/DVD is an optical disc used to store and distribute digital information such as files, music, videos, and software.",
             functions: [
@@ -1269,7 +1063,7 @@
             id: 35,
             name: "HDMI Port",
             category: "output",
-            image: "https://placehold.co/600x400?text=HDMI+Port",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/HDMI%20port.jpg",
             description:
                 "An HDMI port is a digital connector used to transmit high-quality video and audio from a computer to a compatible display or other device.",
             functions: [
@@ -1282,7 +1076,7 @@
             id: 36,
             name: "ROM",
             category: "memory",
-            image: "https://placehold.co/600x400?text=ROM",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/EEPROM.jpg",
             description:
                 "Read-Only Memory is non-volatile memory that retains stored information even when the computer is turned off.",
             functions: [
@@ -1295,7 +1089,7 @@
             id: 37,
             name: "USB Port",
             category: "connectivity",
-            image: "https://placehold.co/600x400?text=USB+Port",
+            image: "https://commons.wikimedia.org/wiki/Special:FilePath/USB%203.0%20ports.jpg",
             description:
                 "A USB port is a standard interface used to connect peripherals and storage devices to a computer for data transfer and, in many cases, power.",
             functions: [
@@ -1303,16 +1097,12 @@
                 "Transfers digital data",
                 "Can provide power to compatible devices"
             ]
-        },
+        }
     ];
-
-
     /* =====================================================
        QUIZ DATA
        ===================================================== */
-
     const quizSets = {
-
         "Quiz 1": [
             ["Which component is the main processor of a computer?", ["RAM", "CPU", "Monitor", "Keyboard"], "CPU"],
             ["Which component temporarily stores data being actively used?", ["SSD", "RAM", "HDD", "CMOS Battery"], "RAM"],
@@ -1328,9 +1118,10 @@
             ["Which part protects and houses many internal computer components?", ["Computer Case", "RAM", "Mouse", "Projector"], "Computer Case"],
             ["Which component processes audio signals?", ["Sound Card", "GPU", "HDD", "PSU"], "Sound Card"],
             ["Which component provides a wired network connection?", ["Network Interface Card", "Cooling Fan", "Optical Drive", "Touchpad"], "Network Interface Card"],
-            ["Which device captures live video for a computer?", ["Webcam", "Printer", "Speaker", "Heatsink"], "Webcam"]
+            ["Which device captures live video for a computer?", ["Webcam", "Printer", "Speaker", "Heatsink"], "Webcam"],
+            ["Which motherboard component helps manage communication between the CPU, memory, and other hardware?", ["Chipset", "ROM", "VGA Port", "CD/DVD"], "Chipset"],
+            ["Which port is commonly used to connect a computer to an older monitor or projector using an analog video signal?", ["VGA Port", "HDMI Port", "USB Port", "NIC/Ethernet Port"], "VGA Port"]
         ],
-
         "Quiz 2": [
             ["Which device converts electrical signals into audible sound?", ["Speakers", "Keyboard", "Mouse", "Monitor"], "Speakers"],
             ["Which drive reads CDs, DVDs, or other optical discs?", ["Optical Drive", "SSD", "RAM", "Sound Card"], "Optical Drive"],
@@ -1346,9 +1137,10 @@
             ["Which device captures a user's voice as audio input?", ["Microphone", "Speakers", "Projector", "Printer"], "Microphone"],
             ["Which component is designed to keep the CPU temperature under control?", ["CPU Cooler", "CMOS Battery", "Keyboard", "NIC"], "CPU Cooler"],
             ["Which component is commonly installed to improve wired network connectivity?", ["Network Interface Card", "Sound Card", "GPU", "Optical Drive"], "Network Interface Card"],
-            ["Which component is responsible for producing high-quality graphics output?", ["Graphics Processing Unit", "PSU", "RAM", "CMOS Battery"], "Graphics Processing Unit"]
+            ["Which component is responsible for producing high-quality graphics output?", ["Graphics Processing Unit", "PSU", "RAM", "CMOS Battery"], "Graphics Processing Unit"],
+            ["Which interface provides a wired network connection using an Ethernet cable?", ["NIC/Ethernet Port", "HDMI Port", "ROM", "Memory Card"], "NIC/Ethernet Port"],
+            ["What firmware initializes hardware and starts the operating system boot process?", ["BIOS/UEFI", "ROM", "Chipset", "I/O Ports"], "BIOS/UEFI"]
         ],
-
         "Quiz 3": [
             ["Which component is often called the brain of the computer?", ["CPU", "SSD", "Monitor", "Printer"], "CPU"],
             ["Which memory loses its contents when power is turned off?", ["RAM", "HDD", "SSD", "USB Flash Drive"], "RAM"],
@@ -1364,9 +1156,10 @@
             ["Which hardware captures images or video for online meetings?", ["Webcam", "Projector", "Printer", "Speakers"], "Webcam"],
             ["Which hardware outputs sound that people can hear?", ["Speakers", "Microphone", "Keyboard", "SSD"], "Speakers"],
             ["Which device reads data from optical discs?", ["Optical Drive", "RAM", "GPU", "Touchpad"], "Optical Drive"],
-            ["Which small device can be plugged into a USB port to carry files?", ["USB Flash Drive", "CPU", "Monitor", "Cooling Fan"], "USB Flash Drive"]
+            ["Which small device can be plugged into a USB port to carry files?", ["USB Flash Drive", "CPU", "Monitor", "Cooling Fan"], "USB Flash Drive"],
+            ["What do I/O ports allow you to do?", ["Connect external devices to a computer", "Store permanent instructions", "Display only analog video", "Store files on optical discs"], "Connect external devices to a computer"],
+            ["Which small removable device is commonly used to store and transfer photos and files?", ["Memory Card", "CD/DVD", "ROM", "Chipset"], "Memory Card"]
         ],
-
         "Quiz 4": [
             ["Which adapter provides wireless network connectivity?", ["Wi-Fi Adapter", "PSU", "Sound Card", "CPU Cooler"], "Wi-Fi Adapter"],
             ["Which metal component absorbs and spreads heat away from a chip?", ["Heatsink", "Mouse", "Webcam", "Printer"], "Heatsink"],
@@ -1382,9 +1175,10 @@
             ["Which component is responsible for supplying stable power to internal hardware?", ["Power Supply Unit", "Motherboard", "Mouse", "Webcam"], "Power Supply Unit"],
             ["Which device is used to enter letters, numbers, and symbols?", ["Keyboard", "Monitor", "Speaker", "Projector"], "Keyboard"],
             ["Which component is a high-speed temporary working memory?", ["RAM", "HDD", "SSD", "Optical Drive"], "RAM"],
-            ["Which component manages general instructions and calculations for the computer?", ["CPU", "GPU", "PSU", "Sound Card"], "CPU"]
+            ["Which component manages general instructions and calculations for the computer?", ["CPU", "GPU", "PSU", "Sound Card"], "CPU"],
+            ["Which type of media stores digital information on an optical disc?", ["CD/DVD", "Memory Card", "ROM", "USB Port"], "CD/DVD"],
+            ["Which port can transmit both digital video and digital audio to a compatible display?", ["HDMI Port", "VGA Port", "USB Port", "NIC/Ethernet Port"], "HDMI Port"]
         ],
-
         "Quiz 5": [
             ["Which component is used to store files without using spinning disks?", ["SSD", "HDD", "RAM", "Optical Drive"], "SSD"],
             ["Which component is the main circuit board of a computer?", ["Motherboard", "GPU", "PSU", "Computer Case"], "Motherboard"],
@@ -1400,319 +1194,216 @@
             ["Which hardware provides wireless network access?", ["Wi-Fi Adapter", "Sound Card", "PSU", "Printer"], "Wi-Fi Adapter"],
             ["Which component helps retain motherboard firmware settings when power is removed?", ["CMOS Battery", "RAM", "GPU", "Speakers"], "CMOS Battery"],
             ["Which input device is built into many laptops for cursor control?", ["Touchpad", "Joystick", "Mouse", "Projector"], "Touchpad"],
-            ["Which device is commonly used to control movement in computer games?", ["Joystick", "Printer", "Monitor", "SSD"], "Joystick"]
+            ["Which device is commonly used to control movement in computer games?", ["Joystick", "Printer", "Monitor", "SSD"], "Joystick"],
+            ["Which type of memory keeps its stored information even when power is removed?", ["ROM", "RAM", "Memory Card", "Chipset"], "ROM"],
+            ["Which port is commonly used to connect peripherals such as keyboards, mice, and USB flash drives?", ["USB Port", "HDMI Port", "VGA Port", "NIC/Ethernet Port"], "USB Port"]
         ]
     };
-
     let selectedQuiz = "Quiz 1";
     let quizData = quizSets[selectedQuiz].map(item => ({
         question: item[0], choices: item[1], answer: item[2]
     }));
-
-
     /* =====================================================
        VARIABLES
        ===================================================== */
-
     let currentQuestion = 0;
     let score = 0;
     let selectedAnswer = null;
-
     let learned = JSON.parse(
         localStorage.getItem("learnedHardware") || "[]"
     );
-
     let attempts = Number(
         localStorage.getItem("quizAttempts") || 0
     );
-
     let latestScore = Number(
         localStorage.getItem("latestQuizScore") || 0
     );
-
     let selectedHardwareId = null;
-
-
     /* =====================================================
        NAVIGATION
        ===================================================== */
-
     const navButtons =
         document.querySelectorAll(".nav-btn");
-
     navButtons.forEach(button => {
-
         button.addEventListener("click", () => {
-
             const section =
                 button.getAttribute("data-section");
-
             showSection(section);
-
         });
-
     });
-
-
     function showSection(sectionId) {
-
         document
             .querySelectorAll(".section")
             .forEach(section => {
                 section.classList.remove("active");
             });
-
         document
             .getElementById(sectionId)
             .classList.add("active");
-
         navButtons.forEach(button => {
-
             button.classList.remove("active");
-
             if (
                 button.getAttribute("data-section")
                 === sectionId
             ) {
                 button.classList.add("active");
             }
-
         });
-
-        window\.scrollTo({
+        window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
-
     }
-
-
     /* =====================================================
        DISPLAY HARDWARE
        ===================================================== */
-
     function displayHardware() {
-
         const grid =
             document.getElementById("hardwareGrid");
-
         const search =
             document
                 .getElementById("searchInput")
                 .value
                 .toLowerCase();
-
         const category =
             document
                 .getElementById("categoryFilter")
                 .value;
-
         const filtered =
             hardwareData.filter(item => {
-
                 const matchesSearch =
                     item.name
                         .toLowerCase()
                         .includes(search);
-
                 const matchesCategory =
                     category === "all"
                     || item.category === category;
-
                 return matchesSearch && matchesCategory;
-
             });
-
-
         grid.innerHTML = "";
-
-
         if (filtered.length === 0) {
-
-            grid.innerHTML = \`
+            grid.innerHTML = `
                 <div class="panel">
                     <h3>No hardware found.</h3>
                     <p>Try another search keyword.</p>
                 </div>
-            \`;
-
+            `;
             return;
-
         }
-
-
         filtered.forEach(item => {
-
             const isLearned =
                 learned.includes(item.id);
-
             const card =
                 document.createElement("div");
-
             card.className = "hardware-card";
-
-            card.innerHTML = \`
-
+            card.innerHTML = `
                 <div class="hardware-image">
                     <img
                         src="${item.image}"
                         alt="${item.name}"
                     >
                 </div>
-
                 <div class="hardware-info">
-
                     <span class="category">
                         ${item.category.toUpperCase()}
                     </span>
-
                     <h3>
                         ${item.name}
                         ${isLearned ? " ✓" : ""}
                     </h3>
-
                     <p>
                         ${item.description}
                     </p>
-
                     <button
                         class="btn"
                         onclick="openHardware(${item.id})"
                     >
                         View Details
                     </button>
-
                 </div>
-
-            \`;
-
+            `;
             grid.appendChild(card);
-
         });
-
     }
-
-
     document
         .getElementById("searchInput")
         .addEventListener(
             "input",
             displayHardware
         );
-
-
     document
         .getElementById("categoryFilter")
         .addEventListener(
             "change",
             displayHardware
         );
-
-
     /* =====================================================
        HARDWARE MODAL
        ===================================================== */
-
     function openHardware(id) {
-
         const item =
             hardwareData.find(
                 hardware => hardware.id === id
             );
-
         selectedHardwareId = id;
-
         document.getElementById("modalTitle")
             .textContent = item.name;
-
         document.getElementById("modalImage")
             .src = item.image;
-
         document.getElementById("modalImage")
             .alt = item.name;
-
         document.getElementById("modalDescription")
             .textContent = item.description;
-
         const functionList =
             document.getElementById("modalFunctions");
-
         functionList.innerHTML = "";
-
         item.functions.forEach(func => {
-
             const li =
                 document.createElement("li");
-
             li.textContent = func;
-
             functionList.appendChild(li);
-
         });
-
         document
             .getElementById("hardwareModal")
             .classList.add("show");
-
     }
-
-
     function closeModal() {
-
         document
             .getElementById("hardwareModal")
             .classList.remove("show");
-
     }
-
-
     function markAsLearned() {
-
         if (
             selectedHardwareId
             && !learned.includes(selectedHardwareId)
         ) {
-
             learned.push(selectedHardwareId);
-
             localStorage.setItem(
                 "learnedHardware",
                 JSON.stringify(learned)
             );
-
         }
-
         updateDashboard();
-
         displayHardware();
-
         closeModal();
-
     }
-
-
     /* =====================================================
        QUIZ
        ===================================================== */
-
     function selectQuiz(quizName) {
-
         selectedQuiz = quizName;
         quizData = quizSets[quizName].map(item => ({
             question: item[0],
             choices: item[1],
             answer: item[2]
         }));
-
         document.querySelectorAll(".quiz-select").forEach(button => {
             button.classList.toggle("active", button.textContent === quizName);
         });
-
         currentQuestion = 0;
         score = 0;
         selectedAnswer = null;
-
-        document.getElementById("quizBox").innerHTML = \`
+        document.getElementById("quizBox").innerHTML = `
             <div class="quiz-number" id="quizNumber">${quizName} — Question 1</div>
             <div class="quiz-question" id="quizQuestion">Loading question...</div>
             <div class="choices" id="choices"></div>
@@ -1720,49 +1411,32 @@
                 <span id="quizProgress">1 / ${quizData.length}</span>
                 <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
             </div>
-        \`;
-
+        `;
         loadQuestion();
     }
-
-
     function loadQuestion() {
-
         selectedAnswer = null;
-
         const question =
             quizData[currentQuestion];
-
         document.getElementById("quizNumber")
             .textContent =
-            \`Question ${currentQuestion + 1}\`;
-
+            `Question ${currentQuestion + 1}`;
         document.getElementById("quizQuestion")
             .textContent =
             question.question;
-
         document.getElementById("quizProgress")
             .textContent =
-            \`${currentQuestion + 1} / ${quizData.length}\`;
-
+            `${currentQuestion + 1} / ${quizData.length}`;
         const choices =
             document.getElementById("choices");
-
         choices.innerHTML = "";
-
         document.getElementById("nextBtn")
             .disabled = true;
-
-
         question.choices.forEach(choice => {
-
             const button =
                 document.createElement("button");
-
             button.className = "choice";
-
             button.textContent = choice;
-
             button.addEventListener(
                 "click",
                 () => selectAnswer(
@@ -1770,115 +1444,74 @@
                     choice
                 )
             );
-
             choices.appendChild(button);
-
         });
-
     }
-
-
     function selectAnswer(button, answer) {
-
         if (selectedAnswer !== null) {
             return;
         }
-
         selectedAnswer = answer;
-
         const question =
             quizData[currentQuestion];
-
         const choices =
             document.querySelectorAll(".choice");
-
         choices.forEach(choice => {
-
             if (
                 choice.textContent
                 === question.answer
             ) {
                 choice.classList.add("correct");
             }
-
             if (
                 choice.textContent === answer
                 && answer !== question.answer
             ) {
                 choice.classList.add("wrong");
             }
-
             choice.disabled = true;
-
         });
-
-
         if (answer === question.answer) {
             score++;
         }
-
         document.getElementById("nextBtn")
             .disabled = false;
-
     }
-
-
     function nextQuestion() {
-
         if (selectedAnswer === null) {
             return;
         }
-
         currentQuestion++;
-
         if (
             currentQuestion >= quizData.length
         ) {
-
             finishQuiz();
-
         } else {
-
             loadQuestion();
-
         }
-
     }
-
-
     function finishQuiz() {
-
         const percentage =
             Math.round(
                 (score / quizData.length) * 100
             );
-
         attempts++;
-
         latestScore = percentage;
-
         localStorage.setItem(
             "quizAttempts",
             attempts
         );
-
         localStorage.setItem(
             "latestQuizScore",
             latestScore
         );
-
-
         document.getElementById("quizBox")
-            .innerHTML = \`
-
+            .innerHTML = `
                 <div class="result">
-
                     <h2>Quiz Completed!</h2>
-
                     <div class="result-score">
                         ${percentage}%
                     </div>
-
                     <p>
                         You got
                         <strong>${score}</strong>
@@ -1886,66 +1519,46 @@
                         <strong>${quizData.length}</strong>
                         questions correct.
                     </p>
-
-                    
-
+                    <br>
                     <button
                         class="btn"
                         onclick="restartQuiz()"
                     >
                         Try Again
                     </button>
-
                     <button
                         class="btn secondary"
                         onclick="showSection('hardware')"
                     >
                         Review Hardware
                     </button>
-
                 </div>
-
-            \`;
-
-
+            `;
         updateDashboard();
-
     }
-
-
     function restartQuiz() {
-
         currentQuestion = 0;
-
         score = 0;
-
         selectedAnswer = null;
-
         document.getElementById("quizBox")
-            .innerHTML = \`
-
+            .innerHTML = `
             <div class="quiz-number" id="quizNumber">
                 Question 1
             </div>
-
             <div
                 class="quiz-question"
                 id="quizQuestion"
             >
                 Loading question...
             </div>
-
             <div
                 class="choices"
                 id="choices"
             ></div>
-
             <div class="quiz-actions">
-
                 <span id="quizProgress">
                     1 / ${quizData.length}
                 </span>
-
                 <button
                     class="btn"
                     id="nextBtn"
@@ -1954,82 +1567,56 @@
                 >
                     Next
                 </button>
-
             </div>
-        \`;
-
+        `;
         loadQuestion();
-
     }
-
-
     /* =====================================================
        DASHBOARD
        ===================================================== */
-
     function updateDashboard() {
-
         document.getElementById("hardwareCount")
             .textContent =
             hardwareData.length;
-
         document.getElementById("quizScore")
             .textContent =
             latestScore + "%";
-
         document.getElementById("quizTaken")
             .textContent =
             attempts;
-
         document.getElementById("learnedCount")
             .textContent =
             learned.length;
-
-
         const progress =
             Math.round(
                 (learned.length /
                 hardwareData.length) * 100
             );
-
         document.getElementById("progressText")
             .textContent = progress;
-
         document.getElementById("progressBar")
             .style.width = progress + "%";
-
     }
-
-
     /* =====================================================
        CLOSE MODAL WHEN CLICKING OUTSIDE
        ===================================================== */
-
     document
         .getElementById("hardwareModal")
         .addEventListener("click", event => {
-
             if (
                 event.target.id
                 === "hardwareModal"
             ) {
                 closeModal();
             }
-
         });
-
-
     /* =====================================================
        INITIALIZE SYSTEM
        ===================================================== */
-
     displayHardware();
-
     updateDashboard();
-
     loadQuestion();
-
 </script>
-
 </body>
 </html>
+
