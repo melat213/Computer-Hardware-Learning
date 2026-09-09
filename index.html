@@ -469,6 +469,11 @@
                 font-size: 23px;
             }
         }
+    
+        .quiz-select.active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+        }
     </style>
 </head>
 
@@ -634,14 +639,22 @@
     <section id="quiz" class="section">
 
         <div class="page-title">
-            <h2>Hardware Identification Quiz</h2>
-            <p>Identify the correct computer hardware component.</p>
+            <h2>Hardware Identification Quizzes</h2>
+            <p>Choose a quiz. Each quiz contains 15 different questions about the 27 computer hardware components.</p>
+        </div>
+
+        <div class="quiz-selector" id="quizSelector" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <button class="btn quiz-select active" onclick="selectQuiz('Quiz 1')">Quiz 1</button>
+            <button class="btn quiz-select" onclick="selectQuiz('Quiz 2')">Quiz 2</button>
+            <button class="btn quiz-select" onclick="selectQuiz('Quiz 3')">Quiz 3</button>
+            <button class="btn quiz-select" onclick="selectQuiz('Quiz 4')">Quiz 4</button>
+            <button class="btn quiz-select" onclick="selectQuiz('Quiz 5')">Quiz 5</button>
         </div>
 
         <div class="quiz-box" id="quizBox">
 
             <div class="quiz-number" id="quizNumber">
-                Question 1
+                ${selectedQuiz} — Question 1
             </div>
 
             <div class="quiz-question" id="quizQuestion">
@@ -653,7 +666,7 @@
             <div class="quiz-actions">
 
                 <span id="quizProgress">
-                    1 / 10
+                    1 / 15
                 </span>
 
                 <button
@@ -1166,129 +1179,103 @@
        QUIZ DATA
        ===================================================== */
 
-    const quizData = [
+    const quizSets = {
 
-        {
-            question:
-                "Which component is considered the main processor of a computer?",
-            choices: [
-                "RAM",
-                "CPU",
-                "Monitor",
-                "Keyboard"
-            ],
-            answer: "CPU"
-        },
+        "Quiz 1": [
+            ["Which component is the main processor of a computer?", ["RAM", "CPU", "Monitor", "Keyboard"], "CPU"],
+            ["Which component temporarily stores data being actively used?", ["SSD", "RAM", "HDD", "CMOS Battery"], "RAM"],
+            ["Which device is primarily used to enter text?", ["Monitor", "Keyboard", "Speaker", "Printer"], "Keyboard"],
+            ["Which component supplies electrical power to the computer?", ["CPU", "RAM", "PSU", "SSD"], "PSU"],
+            ["Which device displays visual information?", ["Mouse", "Keyboard", "Monitor", "RAM"], "Monitor"],
+            ["Which storage device uses flash memory and has no moving parts?", ["HDD", "SSD", "Optical Drive", "Printer"], "SSD"],
+            ["Which component connects most internal computer components?", ["Motherboard", "Keyboard", "Monitor", "Printer"], "Motherboard"],
+            ["Which device controls the pointer or cursor?", ["CPU", "Mouse", "RAM", "PSU"], "Mouse"],
+            ["Which component is mainly responsible for processing graphics?", ["GPU", "RAM", "Keyboard", "SSD"], "GPU"],
+            ["Which component helps move heat away from computer parts?", ["Cooling Fan", "Keyboard", "SSD", "Printer"], "Cooling Fan"],
+            ["Which component provides extra cooling directly for the CPU?", ["CPU Cooler", "CMOS Battery", "Sound Card", "Touchpad"], "CPU Cooler"],
+            ["Which part protects and houses many internal computer components?", ["Computer Case", "RAM", "Mouse", "Projector"], "Computer Case"],
+            ["Which component processes audio signals?", ["Sound Card", "GPU", "HDD", "PSU"], "Sound Card"],
+            ["Which component provides a wired network connection?", ["Network Interface Card", "Cooling Fan", "Optical Drive", "Touchpad"], "Network Interface Card"],
+            ["Which device captures live video for a computer?", ["Webcam", "Printer", "Speaker", "Heatsink"], "Webcam"]
+        ],
 
-        {
-            question:
-                "Which component temporarily stores data currently being used by the computer?",
-            choices: [
-                "SSD",
-                "RAM",
-                "Printer",
-                "Power Supply"
-            ],
-            answer: "RAM"
-        },
+        "Quiz 2": [
+            ["Which device converts electrical signals into audible sound?", ["Speakers", "Keyboard", "Mouse", "Monitor"], "Speakers"],
+            ["Which drive reads CDs, DVDs, or other optical discs?", ["Optical Drive", "SSD", "RAM", "Sound Card"], "Optical Drive"],
+            ["Which portable device commonly stores files using flash memory?", ["USB Flash Drive", "CPU", "Monitor", "PSU"], "USB Flash Drive"],
+            ["Which adapter allows a computer to connect to Wi-Fi?", ["Wi-Fi Adapter", "Sound Card", "GPU", "Heatsink"], "Wi-Fi Adapter"],
+            ["Which part helps transfer heat away from a hot component?", ["Heatsink", "Keyboard", "Webcam", "Printer"], "Heatsink"],
+            ["Which small battery helps retain BIOS/UEFI settings when the computer is powered off?", ["CMOS Battery", "PSU", "RAM", "GPU"], "CMOS Battery"],
+            ["Which built-in pointing surface is commonly found on laptops?", ["Touchpad", "Joystick", "Mouse", "Printer"], "Touchpad"],
+            ["Which input device is commonly used for controlling games?", ["Joystick", "Monitor", "Speaker", "HDD"], "Joystick"],
+            ["Which device projects a computer display onto a larger surface?", ["Projector", "Webcam", "Keyboard", "RAM"], "Projector"],
+            ["Which device is a magnetic storage drive with spinning platters?", ["Hard Disk Drive", "SSD", "USB Flash Drive", "RAM"], "Hard Disk Drive"],
+            ["Which device produces printed documents?", ["Printer", "Monitor", "GPU", "CPU"], "Printer"],
+            ["Which device captures a user's voice as audio input?", ["Microphone", "Speakers", "Projector", "Printer"], "Microphone"],
+            ["Which component is designed to keep the CPU temperature under control?", ["CPU Cooler", "CMOS Battery", "Keyboard", "NIC"], "CPU Cooler"],
+            ["Which component is commonly installed to improve wired network connectivity?", ["Network Interface Card", "Sound Card", "GPU", "Optical Drive"], "Network Interface Card"],
+            ["Which component is responsible for producing high-quality graphics output?", ["Graphics Processing Unit", "PSU", "RAM", "CMOS Battery"], "Graphics Processing Unit"]
+        ],
 
-        {
-            question:
-                "Which device is primarily used for entering text?",
-            choices: [
-                "Monitor",
-                "Keyboard",
-                "Speaker",
-                "Printer"
-            ],
-            answer: "Keyboard"
-        },
+        "Quiz 3": [
+            ["Which component is often called the brain of the computer?", ["CPU", "SSD", "Monitor", "Printer"], "CPU"],
+            ["Which memory loses its contents when power is turned off?", ["RAM", "HDD", "SSD", "USB Flash Drive"], "RAM"],
+            ["Which board contains sockets and connectors for many computer components?", ["Motherboard", "Computer Case", "Monitor", "Mouse"], "Motherboard"],
+            ["Which device is used to move and select items on a graphical interface?", ["Mouse", "Printer", "Speaker", "PSU"], "Mouse"],
+            ["Which component converts AC power from an outlet into suitable power for computer parts?", ["Power Supply Unit", "GPU", "RAM", "Sound Card"], "Power Supply Unit"],
+            ["Which display device lets a user see applications, text, and images?", ["Monitor", "Keyboard", "Microphone", "HDD"], "Monitor"],
+            ["Which storage device is generally faster than a traditional HDD because it uses flash memory?", ["SSD", "Optical Drive", "Printer", "PSU"], "SSD"],
+            ["Which component renders images and video for display?", ["GPU", "CPU Cooler", "CMOS Battery", "Touchpad"], "GPU"],
+            ["Which part moves air through the computer case to help remove heat?", ["Cooling Fan", "Sound Card", "RAM", "Webcam"], "Cooling Fan"],
+            ["Which part physically contains the motherboard, drives, and other components?", ["Computer Case", "Monitor", "Keyboard", "Joystick"], "Computer Case"],
+            ["Which hardware component handles audio input/output functions?", ["Sound Card", "Network Interface Card", "GPU", "Heatsink"], "Sound Card"],
+            ["Which hardware captures images or video for online meetings?", ["Webcam", "Projector", "Printer", "Speakers"], "Webcam"],
+            ["Which hardware outputs sound that people can hear?", ["Speakers", "Microphone", "Keyboard", "SSD"], "Speakers"],
+            ["Which device reads data from optical discs?", ["Optical Drive", "RAM", "GPU", "Touchpad"], "Optical Drive"],
+            ["Which small device can be plugged into a USB port to carry files?", ["USB Flash Drive", "CPU", "Monitor", "Cooling Fan"], "USB Flash Drive"]
+        ],
 
-        {
-            question:
-                "Which component provides electrical power to computer components?",
-            choices: [
-                "CPU",
-                "RAM",
-                "PSU",
-                "SSD"
-            ],
-            answer: "PSU"
-        },
+        "Quiz 4": [
+            ["Which adapter provides wireless network connectivity?", ["Wi-Fi Adapter", "PSU", "Sound Card", "CPU Cooler"], "Wi-Fi Adapter"],
+            ["Which metal component absorbs and spreads heat away from a chip?", ["Heatsink", "Mouse", "Webcam", "Printer"], "Heatsink"],
+            ["Which battery is commonly found on a motherboard?", ["CMOS Battery", "Laptop Battery", "PSU", "USB Flash Drive"], "CMOS Battery"],
+            ["Which laptop input surface replaces a separate mouse for pointer control?", ["Touchpad", "Joystick", "Keyboard", "Microphone"], "Touchpad"],
+            ["Which controller is commonly used for games and simulations?", ["Joystick", "Monitor", "HDD", "Printer"], "Joystick"],
+            ["Which device enlarges and projects the computer screen onto a wall or screen?", ["Projector", "Webcam", "Mouse", "RAM"], "Projector"],
+            ["Which device creates a physical paper copy of digital information?", ["Printer", "Monitor", "GPU", "Microphone"], "Printer"],
+            ["Which input device records spoken sound?", ["Microphone", "Speakers", "Projector", "Heatsink"], "Microphone"],
+            ["Which component provides wired Ethernet connectivity?", ["Network Interface Card", "Wi-Fi Adapter", "Sound Card", "Optical Drive"], "Network Interface Card"],
+            ["Which part is mounted on or near the CPU to cool it?", ["CPU Cooler", "CMOS Battery", "USB Flash Drive", "Touchpad"], "CPU Cooler"],
+            ["Which device is best suited for long-term storage of large files using magnetic platters?", ["Hard Disk Drive", "RAM", "CPU", "Monitor"], "Hard Disk Drive"],
+            ["Which component is responsible for supplying stable power to internal hardware?", ["Power Supply Unit", "Motherboard", "Mouse", "Webcam"], "Power Supply Unit"],
+            ["Which device is used to enter letters, numbers, and symbols?", ["Keyboard", "Monitor", "Speaker", "Projector"], "Keyboard"],
+            ["Which component is a high-speed temporary working memory?", ["RAM", "HDD", "SSD", "Optical Drive"], "RAM"],
+            ["Which component manages general instructions and calculations for the computer?", ["CPU", "GPU", "PSU", "Sound Card"], "CPU"]
+        ],
 
-        {
-            question:
-                "Which device displays visual information from a computer?",
-            choices: [
-                "Mouse",
-                "Keyboard",
-                "Monitor",
-                "RAM"
-            ],
-            answer: "Monitor"
-        },
+        "Quiz 5": [
+            ["Which component is used to store files without using spinning disks?", ["SSD", "HDD", "RAM", "Optical Drive"], "SSD"],
+            ["Which component is the main circuit board of a computer?", ["Motherboard", "GPU", "PSU", "Computer Case"], "Motherboard"],
+            ["Which device lets the user see the computer's graphical output?", ["Monitor", "Printer", "Keyboard", "Microphone"], "Monitor"],
+            ["Which component performs graphics calculations?", ["Graphics Processing Unit", "CPU Cooler", "Sound Card", "CMOS Battery"], "Graphics Processing Unit"],
+            ["Which hardware helps prevent heat buildup by circulating air?", ["Cooling Fan", "USB Flash Drive", "Keyboard", "Touchpad"], "Cooling Fan"],
+            ["Which part is used to protect and organize internal components?", ["Computer Case", "RAM", "Mouse", "Projector"], "Computer Case"],
+            ["Which hardware is dedicated to audio processing?", ["Sound Card", "GPU", "NIC", "HDD"], "Sound Card"],
+            ["Which hardware sends sound to the listener?", ["Speakers", "Microphone", "Webcam", "Keyboard"], "Speakers"],
+            ["Which device sends live video into the computer?", ["Webcam", "Projector", "Printer", "Heatsink"], "Webcam"],
+            ["Which component lets a computer communicate over a wired network?", ["Network Interface Card", "CMOS Battery", "CPU Cooler", "Joystick"], "Network Interface Card"],
+            ["Which portable storage device is commonly connected through USB?", ["USB Flash Drive", "Monitor", "CPU", "Cooling Fan"], "USB Flash Drive"],
+            ["Which hardware provides wireless network access?", ["Wi-Fi Adapter", "Sound Card", "PSU", "Printer"], "Wi-Fi Adapter"],
+            ["Which component helps retain motherboard firmware settings when power is removed?", ["CMOS Battery", "RAM", "GPU", "Speakers"], "CMOS Battery"],
+            ["Which input device is built into many laptops for cursor control?", ["Touchpad", "Joystick", "Mouse", "Projector"], "Touchpad"],
+            ["Which device is commonly used to control movement in computer games?", ["Joystick", "Printer", "Monitor", "SSD"], "Joystick"]
+        ]
+    };
 
-        {
-            question:
-                "Which storage device uses flash memory?",
-            choices: [
-                "SSD",
-                "CPU",
-                "Monitor",
-                "Mouse"
-            ],
-            answer: "SSD"
-        },
-
-        {
-            question:
-                "Which component connects most of the internal computer components?",
-            choices: [
-                "Motherboard",
-                "Printer",
-                "Keyboard",
-                "Monitor"
-            ],
-            answer: "Motherboard"
-        },
-
-        {
-            question:
-                "Which device controls the pointer or cursor?",
-            choices: [
-                "CPU",
-                "Mouse",
-                "RAM",
-                "PSU"
-            ],
-            answer: "Mouse"
-        },
-
-        {
-            question:
-                "Which component is primarily responsible for processing graphics?",
-            choices: [
-                "GPU",
-                "RAM",
-                "Keyboard",
-                "SSD"
-            ],
-            answer: "GPU"
-        },
-
-        {
-            question:
-                "Which component helps prevent the computer from overheating?",
-            choices: [
-                "Cooling Fan",
-                "Keyboard",
-                "SSD",
-                "Printer"
-            ],
-            answer: "Cooling Fan"
-        }
-
-    ];
+    let selectedQuiz = "Quiz 1";
+    let quizData = quizSets[selectedQuiz].map(item => ({
+        question: item[0], choices: item[1], answer: item[2]
+    }));
 
 
     /* =====================================================
@@ -1575,6 +1562,37 @@
     /* =====================================================
        QUIZ
        ===================================================== */
+
+    function selectQuiz(quizName) {
+
+        selectedQuiz = quizName;
+        quizData = quizSets[quizName].map(item => ({
+            question: item[0],
+            choices: item[1],
+            answer: item[2]
+        }));
+
+        document.querySelectorAll(".quiz-select").forEach(button => {
+            button.classList.toggle("active", button.textContent === quizName);
+        });
+
+        currentQuestion = 0;
+        score = 0;
+        selectedAnswer = null;
+
+        document.getElementById("quizBox").innerHTML = `
+            <div class="quiz-number" id="quizNumber">${quizName} — Question 1</div>
+            <div class="quiz-question" id="quizQuestion">Loading question...</div>
+            <div class="choices" id="choices"></div>
+            <div class="quiz-actions">
+                <span id="quizProgress">1 / ${quizData.length}</span>
+                <button class="btn" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        `;
+
+        loadQuestion();
+    }
+
 
     function loadQuestion() {
 
