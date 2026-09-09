@@ -236,13 +236,21 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
+        /* HARDWARE PICTURE */
+
         .hardware-image {
-            height: 150px;
-            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            height: 190px;
+            background: #dbeafe;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 70px;
+            overflow: hidden;
+        }
+
+        .hardware-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hardware-info {
@@ -308,7 +316,7 @@
 
         .modal-content {
             background: white;
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
             border-radius: 15px;
             padding: 30px;
@@ -329,10 +337,12 @@
             cursor: pointer;
         }
 
-        .detail-icon {
-            font-size: 90px;
-            text-align: center;
-            margin: 10px 0 20px;
+        .detail-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
         }
 
         .detail-list {
@@ -466,13 +476,11 @@
             <h1>💻 Hardware Learning System</h1>
             <p>Computer Hardware Identification and Learning System</p>
         </div>
-        
-       <div class="student-box">
-    <span>students</span>
-    <strong id="studentName">Computer Technology</strong>
-          
-</div>
-        
+
+        <div class="student-box">
+            <span>STUDENT</span>
+            <strong id="studentName">Computer Technology</strong>
+        </div>
     </div>
 </header>
 
@@ -545,7 +553,6 @@
         <div class="dashboard-grid">
 
             <div class="panel">
-
                 <h3>Learning Progress</h3>
 
                 <p style="margin-bottom:10px;">
@@ -555,7 +562,6 @@
                 <div class="progress-container">
                     <div class="progress-bar" id="progressBar"></div>
                 </div>
-
             </div>
 
             <div class="panel">
@@ -586,7 +592,10 @@
 
         <div class="page-title">
             <h2>Computer Hardware Components</h2>
-            <p>Study the different components and learn their functions.</p>
+            <p>
+                Study the pictures, names, descriptions, and functions
+                of different computer hardware components.
+            </p>
         </div>
 
         <div class="toolbar">
@@ -599,33 +608,13 @@
 
             <select id="categoryFilter">
 
-                <option value="all">
-                    All Categories
-                </option>
-
-                <option value="processing">
-                    Processing
-                </option>
-
-                <option value="memory">
-                    Memory
-                </option>
-
-                <option value="storage">
-                    Storage
-                </option>
-
-                <option value="input">
-                    Input
-                </option>
-
-                <option value="output">
-                    Output
-                </option>
-
-                <option value="power">
-                    Power
-                </option>
+                <option value="all">All Categories</option>
+                <option value="processing">Processing</option>
+                <option value="memory">Memory</option>
+                <option value="storage">Storage</option>
+                <option value="input">Input</option>
+                <option value="output">Output</option>
+                <option value="power">Power</option>
 
             </select>
 
@@ -685,7 +674,11 @@
 
         <div class="page-title">
             <h2>About the System</h2>
-            <p>Development of a Web-Based Computer Hardware Identification and Learning System.</p>
+
+            <p>
+                Development of a Web-Based Computer Hardware
+                Identification and Learning System.
+            </p>
         </div>
 
         <div class="panel">
@@ -695,8 +688,8 @@
             <p style="line-height:1.8; color:#64748b;">
                 This web-based system is designed to help Computer Technology
                 students learn and identify different computer hardware
-                components. It provides educational information, component
-                descriptions, functions, and an identification quiz.
+                components. It provides educational information, pictures,
+                component descriptions, functions, and an identification quiz.
             </p>
 
             <br>
@@ -749,9 +742,12 @@
 
         </div>
 
-        <div class="detail-icon" id="modalIcon">
-            💻
-        </div>
+        <img
+            id="modalImage"
+            class="detail-image"
+            src=""
+            alt="Hardware Image"
+        >
 
         <p id="modalDescription"></p>
 
@@ -777,7 +773,7 @@
 
     /* =====================================================
        HARDWARE DATA
-    ===================================================== */
+       ===================================================== */
 
     const hardwareData = [
 
@@ -785,7 +781,7 @@
             id: 1,
             name: "CPU",
             category: "processing",
-            icon: "🧠",
+            image: "https://placehold.co/800x450/2563eb/ffffff?text=CPU",
             description:
                 "The Central Processing Unit is the main processor of a computer. It executes instructions and performs calculations.",
             functions: [
@@ -799,7 +795,7 @@
             id: 2,
             name: "Motherboard",
             category: "processing",
-            icon: "🔲",
+            image: "https://placehold.co/800x450/1d4ed8/ffffff?text=Motherboard",
             description:
                 "The motherboard is the main circuit board that connects and allows communication between computer components.",
             functions: [
@@ -813,7 +809,7 @@
             id: 3,
             name: "RAM",
             category: "memory",
-            icon: "💾",
+            image: "https://placehold.co/800x450/0ea5e9/ffffff?text=RAM",
             description:
                 "Random Access Memory temporarily stores data and instructions that the CPU is currently using.",
             functions: [
@@ -827,7 +823,7 @@
             id: 4,
             name: "Hard Disk Drive",
             category: "storage",
-            icon: "💿",
+            image: "https://placehold.co/800x450/334155/ffffff?text=Hard+Disk+Drive",
             description:
                 "A Hard Disk Drive is a storage device used to permanently store files, applications, and operating system data.",
             functions: [
@@ -841,7 +837,7 @@
             id: 5,
             name: "SSD",
             category: "storage",
-            icon: "📦",
+            image: "https://placehold.co/800x450/475569/ffffff?text=SSD",
             description:
                 "A Solid State Drive is a storage device that uses flash memory to store data.",
             functions: [
@@ -855,7 +851,7 @@
             id: 6,
             name: "Keyboard",
             category: "input",
-            icon: "⌨️",
+            image: "https://placehold.co/800x450/64748b/ffffff?text=Keyboard",
             description:
                 "A keyboard is an input device used to enter text, commands, numbers, and other information.",
             functions: [
@@ -869,7 +865,7 @@
             id: 7,
             name: "Mouse",
             category: "input",
-            icon: "🖱️",
+            image: "https://placehold.co/800x450/475569/ffffff?text=Mouse",
             description:
                 "A mouse is a pointing input device used to control the cursor and interact with graphical interfaces.",
             functions: [
@@ -883,7 +879,7 @@
             id: 8,
             name: "Monitor",
             category: "output",
-            icon: "🖥️",
+            image: "https://placehold.co/800x450/0f172a/ffffff?text=Monitor",
             description:
                 "A monitor is an output device that displays visual information produced by the computer.",
             functions: [
@@ -897,7 +893,7 @@
             id: 9,
             name: "Printer",
             category: "output",
-            icon: "🖨️",
+            image: "https://placehold.co/800x450/334155/ffffff?text=Printer",
             description:
                 "A printer is an output device that produces a physical copy of digital documents and images.",
             functions: [
@@ -911,7 +907,7 @@
             id: 10,
             name: "Power Supply Unit",
             category: "power",
-            icon: "🔌",
+            image: "https://placehold.co/800x450/1e293b/ffffff?text=Power+Supply+Unit",
             description:
                 "The Power Supply Unit provides electrical power to the components inside a computer.",
             functions: [
@@ -925,7 +921,7 @@
             id: 11,
             name: "Graphics Processing Unit",
             category: "processing",
-            icon: "🎮",
+            image: "https://placehold.co/800x450/7c3aed/ffffff?text=GPU",
             description:
                 "The GPU processes and renders graphics, images, and video for display.",
             functions: [
@@ -939,13 +935,223 @@
             id: 12,
             name: "Cooling Fan",
             category: "power",
-            icon: "🌀",
+            image: "https://placehold.co/800x450/0891b2/ffffff?text=Cooling+Fan",
             description:
                 "A cooling fan helps maintain safe temperatures by moving air through the computer system.",
             functions: [
                 "Moves air",
                 "Reduces component temperature",
                 "Helps prevent overheating"
+            ]
+        },
+
+        {
+            id: 13,
+            name: "CPU Cooler",
+            category: "power",
+            image: "https://placehold.co/800x450/06b6d4/ffffff?text=CPU+Cooler",
+            description:
+                "A CPU cooler removes heat produced by the processor and helps keep the CPU at a safe operating temperature.",
+            functions: [
+                "Removes heat from the CPU",
+                "Prevents CPU overheating",
+                "Maintains stable CPU performance"
+            ]
+        },
+
+        {
+            id: 14,
+            name: "Computer Case",
+            category: "power",
+            image: "https://placehold.co/800x450/111827/ffffff?text=Computer+Case",
+            description:
+                "The computer case is the enclosure that houses and protects the internal hardware components.",
+            functions: [
+                "Protects internal components",
+                "Provides mounting space for hardware",
+                "Helps with airflow and cooling"
+            ]
+        },
+
+        {
+            id: 15,
+            name: "Sound Card",
+            category: "processing",
+            image: "https://placehold.co/800x450/9333ea/ffffff?text=Sound+Card",
+            description:
+                "A sound card is a hardware component that processes audio signals for recording and playback.",
+            functions: [
+                "Processes audio signals",
+                "Provides sound output",
+                "Supports audio recording"
+            ]
+        },
+
+        {
+            id: 16,
+            name: "Network Interface Card",
+            category: "input",
+            image: "https://placehold.co/800x450/0284c7/ffffff?text=Network+Card",
+            description:
+                "A Network Interface Card allows a computer to connect to a wired or wireless network.",
+            functions: [
+                "Connects the computer to a network",
+                "Sends and receives network data",
+                "Provides network communication"
+            ]
+        },
+
+        {
+            id: 17,
+            name: "Webcam",
+            category: "input",
+            image: "https://placehold.co/800x450/0369a1/ffffff?text=Webcam",
+            description:
+                "A webcam is an input device that captures video and images and sends them to the computer.",
+            functions: [
+                "Captures video",
+                "Captures images",
+                "Supports video calls and online meetings"
+            ]
+        },
+
+        {
+            id: 18,
+            name: "Microphone",
+            category: "input",
+            image: "https://placehold.co/800x450/7e22ce/ffffff?text=Microphone",
+            description:
+                "A microphone is an input device that captures sound and converts it into digital audio.",
+            functions: [
+                "Captures voice",
+                "Records audio",
+                "Allows communication during calls and meetings"
+            ]
+        },
+
+        {
+            id: 19,
+            name: "Speakers",
+            category: "output",
+            image: "https://placehold.co/800x450/6d28d9/ffffff?text=Speakers",
+            description:
+                "Speakers are output devices that produce sound from audio signals generated by the computer.",
+            functions: [
+                "Produces sound",
+                "Plays music and videos",
+                "Provides audio output"
+            ]
+        },
+
+        {
+            id: 20,
+            name: "Optical Drive",
+            category: "storage",
+            image: "https://placehold.co/800x450/475569/ffffff?text=Optical+Drive",
+            description:
+                "An optical drive is a device that reads or writes data using CDs, DVDs, or other optical discs.",
+            functions: [
+                "Reads optical discs",
+                "Writes data to compatible discs",
+                "Allows access to stored disc content"
+            ]
+        },
+
+        {
+            id: 21,
+            name: "USB Flash Drive",
+            category: "storage",
+            image: "https://placehold.co/800x450/1e40af/ffffff?text=USB+Flash+Drive",
+            description:
+                "A USB flash drive is a portable storage device used to save and transfer digital files.",
+            functions: [
+                "Stores digital files",
+                "Transfers data between computers",
+                "Provides portable storage"
+            ]
+        },
+
+        {
+            id: 22,
+            name: "Wi-Fi Adapter",
+            category: "input",
+            image: "https://placehold.co/800x450/0284c7/ffffff?text=Wi-Fi+Adapter",
+            description:
+                "A Wi-Fi adapter allows a computer to connect to wireless networks and access the internet.",
+            functions: [
+                "Connects to wireless networks",
+                "Receives wireless data",
+                "Enables wireless internet access"
+            ]
+        },
+
+        {
+            id: 23,
+            name: "Heatsink",
+            category: "power",
+            image: "https://placehold.co/800x450/64748b/ffffff?text=Heatsink",
+            description:
+                "A heatsink is a metal component that absorbs and dissipates heat produced by computer hardware.",
+            functions: [
+                "Absorbs heat from components",
+                "Dissipates heat into the surrounding air",
+                "Helps prevent overheating"
+            ]
+        },
+
+        {
+            id: 24,
+            name: "CMOS Battery",
+            category: "power",
+            image: "https://placehold.co/800x450/ca8a04/ffffff?text=CMOS+Battery",
+            description:
+                "The CMOS battery provides power to maintain important system settings such as the date, time, and BIOS settings.",
+            functions: [
+                "Maintains system date and time",
+                "Preserves BIOS settings",
+                "Provides backup power to the motherboard"
+            ]
+        },
+
+        {
+            id: 25,
+            name: "Touchpad",
+            category: "input",
+            image: "https://placehold.co/800x450/334155/ffffff?text=Touchpad",
+            description:
+                "A touchpad is a pointing device commonly found on laptops and is used to control the cursor.",
+            functions: [
+                "Controls the cursor",
+                "Supports clicking and tapping",
+                "Allows scrolling and gestures"
+            ]
+        },
+
+        {
+            id: 26,
+            name: "Joystick",
+            category: "input",
+            image: "https://placehold.co/800x450/7c3aed/ffffff?text=Joystick",
+            description:
+                "A joystick is an input device used to control movement and actions in computer games and simulations.",
+            functions: [
+                "Controls movement in games",
+                "Provides directional input",
+                "Supports gaming and simulation applications"
+            ]
+        },
+
+        {
+            id: 27,
+            name: "Projector",
+            category: "output",
+            image: "https://placehold.co/800x450/1e3a8a/ffffff?text=Projector",
+            description:
+                "A projector is an output device that displays computer images and videos on a large screen or surface.",
+            functions: [
+                "Displays images",
+                "Projects videos and presentations",
+                "Provides large-screen visual output"
             ]
         }
 
@@ -1088,6 +1294,7 @@
     let currentQuestion = 0;
     let score = 0;
     let selectedAnswer = null;
+
     let learned = JSON.parse(
         localStorage.getItem("learnedHardware") || "[]"
     );
@@ -1224,7 +1431,10 @@
             card.innerHTML = `
 
                 <div class="hardware-image">
-                    ${item.icon}
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
                 </div>
 
                 <div class="hardware-info">
@@ -1292,8 +1502,11 @@
         document.getElementById("modalTitle")
             .textContent = item.name;
 
-        document.getElementById("modalIcon")
-            .textContent = item.icon;
+        document.getElementById("modalImage")
+            .src = item.image;
+
+        document.getElementById("modalImage")
+            .alt = item.name;
 
         document.getElementById("modalDescription")
             .textContent = item.description;
@@ -1514,13 +1727,9 @@
 
                     <p>
                         You got
-                        <strong>
-                            ${score}
-                        </strong>
+                        <strong>${score}</strong>
                         out of
-                        <strong>
-                            ${quizData.length}
-                        </strong>
+                        <strong>${quizData.length}</strong>
                         questions correct.
                     </p>
 
