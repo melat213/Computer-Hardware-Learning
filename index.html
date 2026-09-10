@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -336,6 +338,12 @@
             border-color: #dc2626;
             background: #fee2e2;
         }
+        .quiz-timer {
+            font-size: 18px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 15px;
+        }
         .quiz-actions {
             margin-top: 25px;
             display: flex;
@@ -516,6 +524,10 @@
         <div class="page-title">
             <h2>Hardware Identification Quizzes</h2>
             <p>Choose a quiz. Each quiz contains 17 different questions about the 37 computer hardware components.</p>
+        </div>
+        <div class="quiz-selector" id="difficultySelector" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
+            <button class="btn difficulty-select active" onclick="selectDifficulty('Easy')">Easy</button>
+            <button class="btn difficulty-select" onclick="selectDifficulty('Hard')">Hard</button>
         </div>
         <div class="quiz-selector" id="quizSelector" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
             <button class="btn quiz-select active" onclick="selectQuiz('Quiz 1')">Quiz 1</button>
@@ -842,7 +854,7 @@
             id: 18,
             name: "Microphone",
             category: "input",
-            image: "https://img.danawa.com/prod_img/500000/421/201/img/3201421_1.jpg?_v=20240221111817",
+            image: "https://static.vecteezy.com/system/resources/thumbnails/034/577/798/small_2x/home-studio-for-podcasts-large-microphone-laptop-and-notebooks-on-the-table-close-up-cinematic-free-photo.jpg",
             description:
                 "A microphone is an input device that captures sound and converts it into digital audio.",
             functions: [
@@ -894,7 +906,7 @@
             id: 22,
             name: "Wi-Fi Adapter",
             category: "input",
-            image: "https://simple.ripley.com.pe/product/_next/image?q=100&url=https%3A%2F%2Frimage.ripley.com.pe%2Fhome.ripley%2FAttachment%2FMKP%2F5679%2FPMP20001134306%2Ffull_image-1.jpeg&w=3840",
+            image: "https://m.media-amazon.com/images/I/51M8ou5nqgL._AC_.jpg",
             description:
                 "A Wi-Fi adapter allows a computer to connect to wireless networks and access the internet.",
             functions: [
@@ -972,7 +984,7 @@
             id: 28,
             name: "Chipset",
             category: "processing",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Intel%20X58%20chipset.jpg",
+            image: "https://thumbs.dreamstime.com/b/detailed-close-up-high-tech-computer-chipset-blue-motherboard-highlighting-performance-advanced-technology-327024540.jpg",
             description:
                 "A chipset is a group of integrated circuits on the motherboard that helps manage communication between the processor, memory, storage, and other hardware.",
             functions: [
@@ -987,7 +999,7 @@
             category: "output",
             image: "https://commons.wikimedia.org/wiki/Special:FilePath/VGA%20connector.jpg",
             description:
-                "A VGA port is an analog video connector commonly used to connect a computer to a monitor or projector.",
+                "A Video Graphics Arry port is an analog video connector commonly used to connect a computer to a monitor or projector.",
             functions: [
                 "Connects a computer to a VGA display",
                 "Transmits analog video signals",
@@ -998,7 +1010,7 @@
             id: 30,
             name: "NIC/Ethernet Port",
             category: "connectivity",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Ethernet%20RJ45%20connector.jpg",
+            image: "https://g-ecx.images-amazon.com/images/G/01/aplusautomation/vendorimages/dbddfc5e-8df5-4241-a5cb-cabb939c3904.jpg._CB272084551_.jpg",
             description:
                 "A NIC/Ethernet port is a network connection interface that allows a computer to connect to a wired network using an Ethernet cable.",
             functions: [
@@ -1011,7 +1023,7 @@
             id: 31,
             name: "BIOS/UEFI",
             category: "processing",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/UEFI%20BIOS.jpg",
+            image: "https://imagenes.computerhoy.20minutos.es/files/image_1920_1080/uploads/imagenes/2023/11/23/68e7cb0ec0dcf.jpeg",
             description:
                 "BIOS/UEFI is motherboard firmware that initializes hardware and starts the process of loading the operating system when a computer is turned on.",
             functions: [
@@ -1024,7 +1036,7 @@
             id: 32,
             name: "I/O Ports",
             category: "connectivity",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/Computer%20motherboard%20rear%20I-O%20panel.jpg",
+            image: "https://www.fs-pcba.com/wp-content/uploads/2024/09/I-O-Panel-e1726281733261.png",
             description:
                 "I/O ports are physical connectors on a computer used to connect input, output, storage, display, and other peripheral devices.",
             functions: [
@@ -1063,7 +1075,7 @@
             id: 35,
             name: "HDMI Port",
             category: "output",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/HDMI%20port.jpg",
+            image: "https://www.adslzone.net/app/uploads-adslzone.net/2025/01/hdmim-puerto.jpg",
             description:
                 "An HDMI port is a digital connector used to transmit high-quality video and audio from a computer to a compatible display or other device.",
             functions: [
@@ -1076,7 +1088,7 @@
             id: 36,
             name: "ROM",
             category: "memory",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/EEPROM.jpg",
+            image: "https://www.thoughtco.com/thmb/v_f2cgNtCO0eVxElILEFa9wedFM=/1280x847/filters:fill(auto,1)/Amiga_1200_Kickstart_3.0_ROMs-56b429575f9b5829f82c66bd.jpg",
             description:
                 "Read-Only Memory is non-volatile memory that retains stored information even when the computer is turned off.",
             functions: [
@@ -1089,7 +1101,7 @@
             id: 37,
             name: "USB Port",
             category: "connectivity",
-            image: "https://commons.wikimedia.org/wiki/Special:FilePath/USB%203.0%20ports.jpg",
+            image: "https://www.digitalcitizen.life/wp-content/uploads/2025/12/usb-port.png",
             description:
                 "A USB port is a standard interface used to connect peripherals and storage devices to a computer for data transfer and, in many cases, power.",
             functions: [
@@ -1196,10 +1208,13 @@
             ["Which input device is built into many laptops for cursor control?", ["Touchpad", "Joystick", "Mouse", "Projector"], "Touchpad"],
             ["Which device is commonly used to control movement in computer games?", ["Joystick", "Printer", "Monitor", "SSD"], "Joystick"],
             ["Which type of memory keeps its stored information even when power is removed?", ["ROM", "RAM", "Memory Card", "Chipset"], "ROM"],
-            ["Which port is commonly used to connect peripherals such as keyboards, mice, and USB flash drives?", ["USB Port", "HDMI Port", "VGA Port", "NIC/Ethernet Port"], "USB Port"]
+            ["Which port is commonly used to connect peripherals such as keyboards, Mouse, and USB flash drives?", ["USB Port", "HDMI Port", "VGA Port", "NIC/Ethernet Port"], "USB Port"]
         ]
     };
     let selectedQuiz = "Quiz 1";
+    let quizDifficulty = "Easy";
+    let timerInterval = null;
+    let timeLeft = 10;
     let quizData = quizSets[selectedQuiz].map(item => ({
         question: item[0], choices: item[1], answer: item[2]
     }));
@@ -1390,7 +1405,16 @@
     /* =====================================================
        QUIZ
        ===================================================== */
+    function selectDifficulty(difficulty) {
+        quizDifficulty = difficulty;
+        document.querySelectorAll(".difficulty-select").forEach(button => {
+            button.classList.toggle("active", button.textContent === difficulty);
+        });
+        selectQuiz(selectedQuiz);
+    }
+
     function selectQuiz(quizName) {
+        clearInterval(timerInterval);
         selectedQuiz = quizName;
         quizData = quizSets[quizName].map(item => ({
             question: item[0],
@@ -1404,7 +1428,8 @@
         score = 0;
         selectedAnswer = null;
         document.getElementById("quizBox").innerHTML = `
-            <div class="quiz-number" id="quizNumber">${quizName} — Question 1</div>
+            <div class="quiz-number" id="quizNumber">${quizDifficulty} — ${quizName} — Question 1</div>
+            <div class="quiz-timer" id="quizTimer" style="display:${quizDifficulty === 'Hard' ? 'block' : 'none'};">Time: 10s</div>
             <div class="quiz-question" id="quizQuestion">Loading question...</div>
             <div class="choices" id="choices"></div>
             <div class="quiz-actions">
@@ -1414,7 +1439,9 @@
         `;
         loadQuestion();
     }
+
     function loadQuestion() {
+        clearInterval(timerInterval);
         selectedAnswer = null;
         const question =
             quizData[currentQuestion];
@@ -1446,12 +1473,26 @@
             );
             choices.appendChild(button);
         });
+        if (quizDifficulty === "Hard") {
+            timeLeft = 10;
+            const timer = document.getElementById("quizTimer");
+            if (timer) timer.textContent = `Time: ${timeLeft}s`;
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                if (timer) timer.textContent = `Time: ${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUp();
+                }
+            }, 1000);
+        }
     }
     function selectAnswer(button, answer) {
         if (selectedAnswer !== null) {
             return;
         }
         selectedAnswer = answer;
+        clearInterval(timerInterval);
         const question =
             quizData[currentQuestion];
         const choices =
@@ -1477,6 +1518,19 @@
         document.getElementById("nextBtn")
             .disabled = false;
     }
+    function timeUp() {
+        if (selectedAnswer !== null) return;
+        selectedAnswer = "__TIME_UP__";
+        const question = quizData[currentQuestion];
+        document.querySelectorAll(".choice").forEach(choice => {
+            if (choice.textContent === question.answer) {
+                choice.classList.add("correct");
+            }
+            choice.disabled = true;
+        });
+        document.getElementById("nextBtn").disabled = false;
+    }
+
     function nextQuestion() {
         if (selectedAnswer === null) {
             return;
@@ -1537,14 +1591,16 @@
         updateDashboard();
     }
     function restartQuiz() {
+        clearInterval(timerInterval);
         currentQuestion = 0;
         score = 0;
         selectedAnswer = null;
         document.getElementById("quizBox")
             .innerHTML = `
             <div class="quiz-number" id="quizNumber">
-                Question 1
+                ${quizDifficulty} — ${selectedQuiz} — Question 1
             </div>
+            <div class="quiz-timer" id="quizTimer" style="display:${quizDifficulty === 'Hard' ? 'block' : 'none'};">Time: 10s</div>
             <div
                 class="quiz-question"
                 id="quizQuestion"
